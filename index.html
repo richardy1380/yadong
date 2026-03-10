@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>🦆 鴨董大師氣色占卜 × AEUST</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#f5c842;--g2:#e8a020;--card:rgba(245,200,66,.07);--bd:rgba(245,200,66,.22)}
+body{min-height:100vh;background:radial-gradient(ellipse at 20% 10%,rgba(245,200,66,.15),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(192,57,43,.12),transparent 50%),linear-gradient(160deg,#0a0500,#180c00 40%,#0f0800);font-family:'Noto Serif TC',Georgia,serif;color:#f0e0b0;overflow-x:hidden}
+#ptc{position:fixed;inset:0;pointer-events:none;z-index:0}
+.pt{position:absolute;border-radius:50%}
+@keyframes floatY{0%,100%{transform:translateY(0) scale(1);opacity:.18}50%{transform:translateY(-20px) scale(1.4);opacity:.5}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes shimmer{0%{background-position:-400% center}100%{background-position:400% center}}
+@keyframes scanln{0%{top:-3px}100%{top:100%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes b3{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes wdl{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+#app{max-width:480px;margin:0 auto;padding:1.2rem 1rem 4rem;position:relative;z-index:1}
+.hdr{text-align:center;margin-bottom:1.2rem}
+.duck{font-size:3rem;display:inline-block;animation:wdl 1.8s ease-in-out infinite;cursor:default;user-select:none}
+.hdr h1{font-family:'ZCOOL XiaoWei','Noto Serif TC',serif;font-size:1.55rem;letter-spacing:.12em;background:linear-gradient(90deg,#f5c842,#ff9f1c,#f5c842,#ffe066,#f5c842);background-size:400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite;margin:.2rem 0 .25rem;line-height:1.2}
+.hdr .sub{color:rgba(240,224,176,.45);font-size:.72rem;letter-spacing:.06em}
+.badge{display:inline-block;margin-top:.5rem;padding:.2rem .75rem;border-radius:999px;background:linear-gradient(90deg,rgba(192,57,43,.35),rgba(245,200,66,.2));border:1px solid rgba(245,200,66,.35);font-size:.6rem;letter-spacing:.04em;color:var(--g)}
+.ltabs{display:flex;gap:.35rem;justify-content:center;margin-bottom:1.1rem;flex-wrap:wrap}
+.ltab{padding:.26rem .65rem;border-radius:999px;font-size:.68rem;cursor:pointer;border:1px solid rgba(245,200,66,.18);background:rgba(245,200,66,.05);color:rgba(240,224,176,.5);font-family:inherit;transition:all .2s}
+.ltab.on{border-color:var(--g);background:rgba(245,200,66,.18);color:#ffe;box-shadow:0 0 10px rgba(245,200,66,.3)}
+.card{background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(12px);border-radius:16px;padding:1.1rem 1.25rem;margin-bottom:.7rem;animation:fadeUp .4s ease}
+.bg{background:linear-gradient(135deg,#b8860b,#f5c842,#e8a020);border:none;color:#1a0800;font-weight:700;cursor:pointer;border-radius:12px;font-family:inherit;font-size:.95rem;padding:.85rem 1rem;transition:all .25s;letter-spacing:.05em;box-shadow:0 4px 20px rgba(245,200,66,.3);-webkit-tap-highlight-color:transparent}
+.bg:active{transform:scale(.97)}
+.bgh{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.22);color:rgba(240,224,176,.8);cursor:pointer;border-radius:12px;font-family:inherit;font-size:.88rem;padding:.8rem 1rem;transition:all .25s;-webkit-tap-highlight-color:transparent}
+.bgh:active{background:rgba(245,200,66,.14)}
+.brow{display:flex;gap:.6rem}
+.brow .bg,.brow .bgh{flex:1}
+.brow .bg.w{flex:2}
+.orb{width:78px;height:78px;border-radius:50%;margin:0 auto 1.5rem;background:radial-gradient(circle,rgba(245,200,66,.8),rgba(245,200,66,.1));box-shadow:0 0 50px rgba(245,200,66,.45);animation:pulse 2.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.camw{position:relative;border-radius:12px;overflow:hidden;margin-bottom:.75rem}
+#video{width:100%;display:block;border-radius:12px}
+.camov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.fring{width:155px;height:195px;border-radius:50%;border:2px solid var(--g);box-shadow:0 0 22px rgba(245,200,66,.6),inset 0 0 22px rgba(245,200,66,.2)}
+.scanln{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);animation:scanln 2.2s linear infinite}
+.divt{color:rgba(245,200,66,.28);font-size:.7rem;text-align:center;margin:.35rem 0}
+.orn{text-align:center;color:rgba(245,200,66,.35);font-size:.75rem;letter-spacing:.2em;margin:.1rem 0}
+.flbl{font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--g);margin-bottom:.35rem}
+.ftxt{color:rgba(240,224,176,.85);font-size:.86rem;line-height:1.82}
+.advi{display:flex;gap:.5rem;margin-bottom:.45rem}
+.advi:last-child{margin-bottom:0}
+.addia{color:var(--g);font-size:.72rem;flex-shrink:0;margin-top:.18rem}
+.bless{padding:1.2rem;border-radius:16px;text-align:center;background:linear-gradient(135deg,rgba(245,200,66,.12),rgba(192,57,43,.1));border:1px solid rgba(245,200,66,.38);margin-bottom:.7rem;animation:fadeUp .4s ease}
+.blbl{font-size:.65rem;color:var(--g);letter-spacing:.12em;margin-bottom:.45rem}
+.btxt{color:#ffe082;font-size:1rem;font-weight:700;line-height:1.65;letter-spacing:.03em}
+.oetb{border-radius:16px;margin-bottom:.7rem;background:linear-gradient(135deg,rgba(192,57,43,.25),rgba(245,200,66,.1));border:1px solid rgba(245,200,66,.28);padding:1.1rem 1.25rem;animation:fadeUp .5s ease}
+.oetbt{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--g);margin-bottom:.55rem}
+.oetl{font-size:.78rem;line-height:1.7;color:rgba(240,224,176,.8);padding-left:.8rem;border-left:2px solid var(--g2)}
+.abar-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.38rem}
+.abar-lbl{font-size:.63rem;color:rgba(240,224,176,.5);width:3.6rem;flex-shrink:0;text-align:right}
+.abar-bg{flex:1;height:7px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.abar-fill{height:100%;border-radius:999px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.abar-val{font-size:.6rem;color:rgba(240,224,176,.4);width:2rem;flex-shrink:0}
+.dots{display:flex;justify-content:center;gap:.5rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g)}
+.dot:nth-child(1){animation:b3 .9s 0s infinite}
+.dot:nth-child(2){animation:b3 .9s .2s infinite}
+.dot:nth-child(3){animation:b3 .9s .4s infinite}
+/* ── 鴨董思考過場 ── */
+@keyframes duckThink{
+  0%{transform:rotate(-10deg) scale(1) translateY(0)}
+  20%{transform:rotate(6deg) scale(1.14) translateY(-10px)}
+  40%{transform:rotate(-6deg) scale(1.1) translateY(-5px)}
+  60%{transform:rotate(9deg) scale(1.16) translateY(-12px)}
+  80%{transform:rotate(-4deg) scale(1.09) translateY(-6px)}
+  100%{transform:rotate(-10deg) scale(1) translateY(0)}
+}
+@keyframes ideaFlash{
+  0%{opacity:0;transform:scale(0.2) rotate(-20deg)}
+  40%{opacity:1;transform:scale(1.4) rotate(12deg)}
+  70%{transform:scale(0.95) rotate(-5deg)}
+  100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+@keyframes sparkFloat{
+  0%{opacity:0;transform:translateY(0) scale(0) rotate(0deg)}
+  35%{opacity:1;transform:translateY(-14px) scale(1.2) rotate(90deg)}
+  100%{opacity:0;transform:translateY(-50px) scale(0.5) rotate(270deg)}
+}
+@keyframes bubbleIn{
+  0%{opacity:0;transform:scale(0.6) translateY(8px)}
+  70%{opacity:1;transform:scale(1.05) translateY(-2px)}
+  100%{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes dotBlink{0%,100%{opacity:.15;transform:scale(0.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes statusPulse{0%,100%{opacity:.4}50%{opacity:.9}}
+.think-stage{
+  padding:2rem 1.5rem 2.2rem;
+  text-align:center;
+  position:relative;
+  min-height:280px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  overflow:hidden;
+}
+.think-duck{
+  font-size:4.8rem;
+  display:inline-block;
+  filter:drop-shadow(0 0 20px rgba(245,200,66,.55));
+  margin-bottom:.5rem;
+  position:relative;
+  z-index:3;
+  will-change:transform;
+}
+.think-duck.thinking{animation:duckThink .6s ease-in-out infinite}
+.think-duck.eureka{animation:ideaFlash .55s ease forwards;font-size:4rem}
+.think-bubble{
+  background:rgba(30,15,0,.7);
+  border:1.5px solid rgba(245,200,66,.45);
+  border-radius:16px 16px 16px 5px;
+  padding:.5rem .95rem;
+  font-size:.84rem;
+  color:rgba(240,224,176,.92);
+  margin-bottom:.45rem;
+  position:relative;
+  max-width:240px;
+  line-height:1.65;
+  z-index:3;
+  min-height:2.2rem;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);
+}
+.think-bubble.show{animation:bubbleIn .3s ease forwards}
+.think-bubble::after{
+  content:'';position:absolute;bottom:-9px;left:16px;
+  width:0;height:0;
+  border-left:7px solid transparent;
+  border-right:5px solid transparent;
+  border-top:9px solid rgba(245,200,66,.45);
+}
+.think-dots{display:flex;gap:8px;justify-content:center;margin:.35rem 0 .5rem;z-index:3;position:relative}
+.think-dot{width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g)}
+.think-dot:nth-child(1){animation:dotBlink .75s 0s infinite}
+.think-dot:nth-child(2){animation:dotBlink .75s .25s infinite}
+.think-dot:nth-child(3){animation:dotBlink .75s .5s infinite}
+.think-status{
+  font-size:.65rem;color:rgba(240,224,176,.42);
+  letter-spacing:.1em;margin-top:.15rem;
+  animation:statusPulse 1.8s ease-in-out infinite;
+  z-index:3;position:relative;
+}
+.think-status.reveal{
+  font-size:1.05rem;color:#ffe082;font-weight:700;
+  letter-spacing:.06em;animation:bubbleIn .4s ease forwards;
+}
+.sparks-layer{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.spark{position:absolute;animation:sparkFloat 1s ease forwards;pointer-events:none;line-height:1}
+
+/* ── Email 傳送區塊 ── */
+.email-toggle-btn{
+  background:transparent;
+  border:1px solid rgba(245,200,66,.3);
+  color:rgba(240,224,176,.5);
+  font-size:.72rem;font-family:inherit;
+  padding:.38rem .85rem;border-radius:20px;
+  cursor:pointer;letter-spacing:.06em;
+  transition:all .25s;-webkit-tap-highlight-color:transparent;
+}
+.email-toggle-btn:hover,.email-toggle-btn:active{
+  border-color:rgba(245,200,66,.6);
+  color:rgba(240,224,176,.85);
+  background:rgba(245,200,66,.07);
+}
+.email-block{
+  background:linear-gradient(135deg,rgba(245,200,66,.08),rgba(192,57,43,.06));
+  border:1px solid rgba(245,200,66,.28);
+  border-radius:16px;
+  padding:1.1rem 1.25rem;
+  margin-bottom:.7rem;
+  animation:fadeUp .5s ease;
+}
+.email-title{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;
+  color:var(--g);margin-bottom:.65rem;
+}
+.email-row{display:flex;gap:.5rem;align-items:stretch}
+.email-input{
+  flex:1;background:rgba(255,255,255,.06);
+  border:1px solid rgba(245,200,66,.28);
+  border-radius:10px;padding:.6rem .85rem;
+  color:#f0e0b0;font-family:inherit;font-size:.84rem;
+  outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.email-input::placeholder{color:rgba(240,224,176,.3)}
+.email-input:focus{border-color:rgba(245,200,66,.65);background:rgba(255,255,255,.09)}
+.email-btn{
+  background:linear-gradient(135deg,#b8860b,#f5c842,#e8a020);
+  border:none;color:#1a0800;font-weight:700;
+  cursor:pointer;border-radius:10px;
+  font-family:inherit;font-size:.82rem;
+  padding:.6rem .9rem;white-space:nowrap;
+  transition:all .2s;-webkit-tap-highlight-color:transparent;
+  flex-shrink:0;
+}
+.email-btn:active{transform:scale(.96)}
+.email-note{
+  font-size:.6rem;color:rgba(240,224,176,.3);
+  margin-top:.45rem;line-height:1.5;text-align:center;
+}
+.email-sent{
+  text-align:center;font-size:.82rem;
+  color:#86efac;padding:.4rem 0;
+  display:none;animation:fadeUp .3s ease;
+}
+
+/* ── LINE 瀏覽器引導 ── */
+#line-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(160deg,#1a0800 0%,#2d1200 100%);
+  flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem;text-align:center;
+}
+#line-overlay.show{display:flex}
+.line-icon{font-size:3.5rem;margin-bottom:1rem;animation:floatY 2s ease-in-out infinite}
+.line-title{font-size:1.3rem;font-weight:700;color:var(--g);margin-bottom:.6rem;letter-spacing:.05em}
+.line-desc{font-size:.85rem;color:rgba(240,224,176,.7);line-height:1.7;margin-bottom:1.5rem}
+.line-step{
+  background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);
+  border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1rem;
+  font-size:.82rem;color:rgba(240,224,176,.85);line-height:1.8;
+  width:100%;max-width:320px;text-align:left;
+}
+.line-step b{color:var(--g)}
+.line-open-btn{
+  background:linear-gradient(135deg,#06c755,#04a844);
+  border:none;color:#fff;font-weight:700;font-size:1rem;
+  padding:.85rem 2rem;border-radius:12px;cursor:pointer;
+  font-family:inherit;width:100%;max-width:320px;
+  box-shadow:0 4px 20px rgba(6,199,85,.35);
+  letter-spacing:.05em;
+}
+.line-open-btn:active{transform:scale(.97)}
+.phase{display:none}.phase.on{display:block}
+footer{text-align:center;font-size:.6rem;color:rgba(240,224,176,.2);margin-top:2rem;line-height:1.8}
+.ftl{color:rgba(245,200,66,.4);text-decoration:none}
+</style>
+</head>
+<body>
+
+  <!-- LINE 瀏覽器引導 overlay -->
+  <div id="line-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#1a0800,#2d1200);flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
+    <div style="font-size:3.5rem;margin-bottom:1rem;animation:floatY 2s ease-in-out infinite">🦆</div>
+    <div id="lo-title" style="font-size:1.3rem;font-weight:700;color:#f5c842;margin-bottom:.6rem;letter-spacing:.05em">請用瀏覽器開啟</div>
+    <div id="lo-desc" style="font-size:.85rem;color:rgba(240,224,176,.75);line-height:1.7;margin-bottom:1.2rem">LINE 內建瀏覽器不支援相機權限<br>請改用手機的 Safari 或 Chrome 開啟</div>
+    <div id="lo-step" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1rem;font-size:.82rem;color:rgba(240,224,176,.85);line-height:1.9;width:100%;max-width:320px;text-align:left">
+      <b>方法一（Android）</b><br>點右上角 ⋮ → 選「在瀏覽器中開啟」<br><br>
+      <b>方法二（iOS）</b><br>點右下角 ⋯ → 選「用 Safari 開啟」
+    </div>
+    <button id="lo-btn" onclick="tryOpenExternal()" style="background:linear-gradient(135deg,#06c755,#04a844);border:none;color:#fff;font-weight:700;font-size:.95rem;padding:.85rem 1.5rem;border-radius:12px;cursor:pointer;font-family:inherit;width:100%;max-width:320px;box-shadow:0 4px 20px rgba(6,199,85,.35)">🌐 複製連結，用瀏覽器開啟</button>
+  </div>
+
+<div id="ptc"></div>
+<div id="app">
+  <div class="hdr">
+    <div class="duck">🦆</div>
+    <h1 id="h-title">鴨董大師氣色占卜</h1>
+    <p class="sub" id="h-sub">以千年鴨嘴慧眼，洞察您的命運氣場</p>
+    <div class="badge">✦ 亞東科技大學 Asia Eastern University of Science and Technology (AEUST) ✦</div>
+  </div>
+  <div class="ltabs">
+    <button class="ltab on" data-lang="zh" onclick="setLang('zh')">🇹🇼 中文</button>
+    <button class="ltab"    data-lang="en" onclick="setLang('en')">🇺🇸 English</button>
+    <button class="ltab"    data-lang="vi" onclick="setLang('vi')">🇻🇳 Tiếng Việt</button>
+    <button class="ltab"    data-lang="id" onclick="setLang('id')">🇮🇩 Indonesia</button>
+    <button class="ltab"    data-lang="ms" onclick="setLang('ms')">🇲🇾 Melayu</button>
+  </div>
+
+  <!-- IDLE -->
+  <div id="ph-idle" class="phase on">
+    <div class="card" style="text-align:center;padding:2rem 1.5rem">
+      <div class="orb">🦆</div>
+      <button class="bg" id="b-snap" onclick="startCam()" style="width:100%;margin-bottom:.6rem">📸 拍照算命</button>
+      <div class="divt" id="b-or">或</div>
+      <button class="bgh" id="b-up" onclick="document.getElementById('finput').click()" style="width:100%">🖼️ 上傳照片</button>
+      <input id="finput" type="file" accept="image/*" style="display:none" onchange="handleFile(event)">
+      <p id="p-hint" style="color:rgba(240,224,176,.3);font-size:.63rem;margin-top:1rem;line-height:1.6">✨ 純本地分析・無需網路・秒出結果<br>鴨董直接用鴨眼分析您的氣色！</p>
+    </div>
+    <div class="orn">── ✦ 鴨董大師恭候 ✦ ──</div>
+  </div>
+
+  <!-- CAMERA -->
+  <div id="ph-cam" class="phase">
+    <div class="card" style="padding:.85rem">
+      <div class="camw">
+        <video id="video" autoplay playsinline muted></video>
+        <div class="camov"><div class="fring"></div></div>
+        <div class="scanln"></div>
+      </div>
+      <canvas id="canvas" style="display:none"></canvas>
+      <div class="brow">
+        <button class="bgh" onclick="cancelCam()">✕ 取消</button>
+        <button class="bg w" id="b-take" onclick="takePic()">⊙ 拍照</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div id="ph-prev" class="phase">
+    <div class="card" style="padding:.85rem">
+      <img id="prev-img" src="" alt="" style="width:100%;border-radius:10px;display:block;margin-bottom:.75rem">
+      <div class="brow">
+        <button class="bgh" id="b-retake" onclick="goIdle()">↩ 重拍</button>
+        <button class="bg w" id="b-analyze" onclick="doAnalyze()">🦆 鴨董開算！</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div id="ph-load" class="phase">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="think-stage" id="think-stage">
+        <div class="sparks-layer" id="sparks-layer"></div>
+        <div id="think-duck" class="think-duck">🦆</div>
+        <div id="think-bubble" class="think-bubble" style="visibility:hidden"></div>
+        <div class="think-dots">
+          <div class="think-dot"></div>
+          <div class="think-dot"></div>
+          <div class="think-dot"></div>
+        </div>
+        <div id="think-status" class="think-status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="ph-result" class="phase">
+    <div class="card" style="display:flex;gap:1rem;align-items:center">
+      <img id="r-photo" src="" alt="" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid var(--g);box-shadow:0 0 18px rgba(245,200,66,.55);flex-shrink:0">
+      <div style="flex:1;text-align:center">
+        <div style="font-size:.62rem;color:rgba(240,224,176,.38);letter-spacing:.1em;margin-bottom:.4rem" id="lbl-score">氣場指數</div>
+        <svg width="116" height="116" style="display:block;margin:0 auto">
+          <circle cx="58" cy="58" r="46" fill="none" stroke="rgba(245,200,66,.12)" stroke-width="9"/>
+          <circle id="sarc" cx="58" cy="58" r="46" fill="none" stroke="#f5c842" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 289" style="transform:rotate(-90deg);transform-origin:58px 58px;transition:stroke-dasharray 1.6s ease;filter:drop-shadow(0 0 5px #f5c842)"/>
+          <text id="snum" x="58" y="54" text-anchor="middle" fill="#f5c842" font-size="26" font-weight="900" font-family="Georgia,serif">-</text>
+          <text x="58" y="70" text-anchor="middle" fill="rgba(240,224,176,.35)" font-size="10">/ 10</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card">
+      <div class="flbl" id="lbl-aura">氣色分析</div>
+      <div id="aura-bars"></div>
+      <div style="display:flex;align-items:center;gap:.6rem;margin-top:.6rem">
+        <canvas id="skin-sw" width="32" height="32" style="border-radius:50%;border:2px solid rgba(245,200,66,.4);flex-shrink:0"></canvas>
+        <p id="aura-verdict" style="font-size:.78rem;color:rgba(240,224,176,.75);line-height:1.6"></p>
+      </div>
+    </div>
+    <div class="card"><p id="r-overall" class="ftxt"></p></div>
+    <div class="card"><div class="flbl" id="l-wealth">💰 財運</div><p id="r-wealth" class="ftxt"></p></div>
+    <div class="card"><div class="flbl" id="l-study">📚 學業運</div><p id="r-study" class="ftxt"></p></div>
+    <div class="card"><div class="flbl" id="l-career">🌟 事業運</div><p id="r-career" class="ftxt"></p></div>
+    <div class="card"><div class="flbl" id="l-love">💕 感情運</div><p id="r-love" class="ftxt"></p></div>
+    <div class="card"><div class="flbl" id="l-advice">✨ 開運建議</div><div id="r-advice"></div></div>
+    <div class="oetb"><div class="oetbt" id="oet-title">鴨董大師特別批示 · 亞東科技大學 AEUST</div><div class="oetl" id="oet-txt"></div></div>
+    <div class="bless"><div class="blbl" id="l-bless">🔮 吉祥祝福</div><div id="r-bless" class="btxt"></div></div>
+    <div style="text-align:center;margin-bottom:.5rem">
+      <button class="email-toggle-btn" onclick="toggleEmailPanel()">📧 <span id="email-toggle-label">寄送結果</span></button>
+    </div>
+    <div class="email-block" id="email-panel" style="display:none">
+      <div class="email-row">
+        <input class="email-input" id="email-input" type="email"
+          placeholder="your@email.com" autocomplete="email" inputmode="email">
+        <button class="email-btn" onclick="sendResultEmail()">✉ <span id="email-btn-label">傳送</span></button>
+      </div>
+      <div class="email-note" id="email-note">由您的郵件軟體寄出・完全免費</div>
+      <div class="email-sent" id="email-sent" style="display:none">✓ 已開啟郵件，請確認並送出！</div>
+    </div>
+    <div class="brow"><button class="bgh" onclick="goIdle()" id="b-again">↩ 重新占卜</button></div>
+  </div>
+
+  <footer>✦ 娛樂占卜・鴨董不負法律責任但負責帶歡笑 ✦<br>
+  <a class="ftl" href="https://www.oit.edu.tw" target="_blank">亞東科技大學 AEUST</a> ｜ 工業設計系 ｜ 鴨董聯名版</footer>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+var LANG='zh', PHOTO=null, RESULT=null, STREAM=null;
+
+// ══════════════════════════════════════
+// DATA — 5 aura types, 3 variants each
+// ══════════════════════════════════════
+var D={
+zh:{
+  vl:'zh-TW',
+  snap:'拍照算命',upload:'上傳照片',retake:'重拍',or:'或',analyze:'🦆 鴨董開算！',
+  ld1:'鴨董大師正在分析氣色中…',ld2:'掃描五官色彩・計算氣場能量',
+  scl:'氣場指數',al:'🎨 氣色分析',
+  lw:'💰 財運',ls:'📚 學業運',lc:'🌟 事業運',ll:'💕 感情運',
+  la:'✨ 開運建議',lb:'🔮 吉祥祝福',
+  son:'🔊 語音播報',sof:'⏹ 停止播報',sst:'鴨董正在高聲宣告天機…',
+  ot:'🎓 鴨董大師特別批示 · 亞東科技大學 AEUST',
+  hint:'✨ 純本地分析・無需網路・秒出結果\n鴨董直接用鴨眼分析您的氣色！',
+  emailTitle:'📧 將占卜結果寄給自己',
+  emailPlaceholder:'您的電子郵件信箱',
+  emailBtn:'✉ 傳送',
+  emailNote:'由您的郵件軟體寄出・完全免費・隱私安全',
+  emailSent:'✓ 已開啟郵件，請確認並送出！',
+  emailSubject:'🦆 鴨董大師氣色占卜結果',
+  emailGreeting:'您好！以下是您的鴨董大師氣色占卜結果：',
+  emailAeustIntro:'亞東科技大學 Asia Eastern University of Science and Technology (AEUST)',
+  emailAdmission:'🎓 亞東科技大學招生資訊',
+  open:[
+    '本鴨掐指一算，差點脫臼，但天機已洩——',
+    '嘎！鴨嘴一張，宇宙震動，財神轉頭看您——',
+    '本大師凝神三秒，羽毛豎立，一切盡在鴨掌中——',
+    '別的大師用水晶球，本鴨用鴨眼，比您的手機相機還準——',
+    '鴨董掰開鴨爪數了數，您的運勢本鴨全看透了——',
+    '本鴨閉目入定，已窺天機，且聽鴨言——',
+  ],
+  avl:{r:'紅色度',g:'綠色度',b:'藍色度',bright:'亮度',warm:'暖色度'},
+  av:{
+    vibrant:'✦ 氣色紅潤飽滿，氣血充足旺盛',
+    warm:'✦ 面蘊金光，偏財旺，暖色系強勢',
+    neutral:'✦ 氣色平和中正，陰陽調和穩健',
+    pale:'✦ 氣色偏淡，元氣待補充調養',
+    dull:'✦ 氣色略顯沉滯，宜積蓄能量',
+  },
+  overall:{
+    vibrant:[
+      '氣色紅潤飽滿！印堂發亮，眼神清澈有神，唇色紅潤——四象俱旺！本鴨斷定，您近期的運勢如同下坡騎車，輕鬆快速，但記得戴安全帽！',
+      '哇哦！面如桃花，氣如虹霓！本鴨從未見過如此旺盛的氣場——連本鴨的羽毛都跟著豎起來了，近期諸事皆宜，衝就對了！',
+      '日月精華盡收面門！好運正在列隊等待放行，本鴨已經幫您插隊到最前面了！',
+    ],
+    warm:[
+      '面蘊金光，偏黃明亮！五行金氣旺盛，此乃財星高照之象，近期進財管道四通八達，連本鴨都想跟您借錢！',
+      '氣色偏暖如琥珀，近期貴人緣極佳。本鴨觀察到您的鼻樑區金光閃閃，財帛宮旺盛的表徵無誤，把握時機！',
+      '膚色金黃明亮，如同被幸運女神親吻過的臉！近期不管做什麼都有意外收穫的可能，連撿到錢都有可能！',
+    ],
+    neutral:[
+      '氣色平穩如秋水，不偏不倚，陰陽調和。此乃蓄力之象，運勢正在默默積累能量，靜待時機一鳴驚人！',
+      '面相中正平和，五行均衡，近期運勢如同穩健的電扶梯，不急不躁卻持續上升中。本鴨最欣賞這種穩中求進的氣場！',
+      '氣色平和，神采自然。近期雖無大起大落，卻有紮實的根基在累積，正所謂臺上一分鐘、臺下十年功，您現在正在練功！',
+    ],
+    pale:[
+      '氣色略顯淡薄，元氣有些透支——本鴨猜您最近是不是熬夜打遊戲或追劇了？精氣神需要補充，但潛力依然無限！',
+      '面色偏白，木氣稍虛，近期宜靜不宜動。但別灰心！本鴨說：玉石未琢不成器，您現在只是在休機保養，接下來必有大展身手之機！',
+      '氣色清淡如薄霧，元氣需要充電。本鴨問您：睡眠夠嗎？喝水夠嗎？好好照顧自己，才能讓鴨董為您算出更旺的運勢！',
+    ],
+    dull:[
+      '氣色略顯沉滯，猶如陰天蒙雲——但本鴨告訴您：黎明前最暗，破曉前最冷，您的黎明就快到了！本鴨以鴨格擔保！',
+      '運勢稍入低潮，此乃積蓄能量之時期。本鴨觀察天下英雄，發現最後勝出的往往都是在低潮期默默蓄力的那個人。加油！',
+      '氣場略顯疲態，但本鴨說：蓮花最終從泥濘中開出，鑽石最終從壓力中誕生。您現在正在被打磨，閃耀只是時間問題！',
+    ],
+  },
+  wealth:{
+    vibrant:[
+      '財庫大開！近期不管是獎學金、打工收入還是比賽獎金，都有進帳的可能。本鴨建議：記得存錢，別全花在手搖飲料上！',
+      '偏財正財雙旺！近期有意外之財的可能，可能是比賽獎金、獎學金通知，甚至幫人歸還錢包還得到感謝金。財氣旺盛，善加利用！',
+      '財帛宮明亮，金氣流通，近期理財運極佳。本鴨建議規劃自己的小金庫，培養理財習慣——有錢的鴨子才是快樂的鴨子！',
+    ],
+    warm:[
+      '偏財運旺盛，意外收穫有望！近期可留意獎學金申請、比賽獎金、兼職機會，財神就在轉角等著您。本鴨說：主動出擊，財神才跟得上！',
+      '近期金氣旺，收入管道有所拓展。本鴨建議善用才藝變現，設計、攝影、家教都是好選項，連本鴨算命也是副業成功案例！',
+      '財運上升中，但需要自己踏出第一步。本鴨告訴您：機會不主動敲門，但氣色這麼好的您，只要打開門往外走，機會就在門口等著！',
+    ],
+    neutral:[
+      '財運平穩，有入有出，量力而為。本鴨提醒：不要讓奶茶、手遊課金、直播打賞把您的月費吃光，存下每一百元就是對未來的投資！',
+      '財氣穩定，近期沒有大起大落。現在培養記帳的習慣，等出社會就是您的制勝秘密武器，連本鴨都在記鴨毛支出！',
+      '財運中規中矩，但本鴨觀察到您有潛在的理財天份。現在就開始學習理財知識，等您畢業，同學都還在月光，您已經開始累積資產了！',
+    ],
+    pale:[
+      '財氣稍弱，近期宜守不宜攻。本鴨溫馨提醒：少衝動消費，拒絕不必要的買了會快樂三分鐘商品，存下來的錢才是您真正的財富！',
+      '近期財運較為保守，但這不代表沒有機會。本鴨建議：申請看看校內外的獎學金，說不定您正是符合資格的那個人！',
+      '財氣需要調養，但別焦慮！本鴨說：財富是累積的，學生時期把專業學好就是最大的投資。等您畢業，本鴨算出您的財運必然爆發！',
+    ],
+    dull:[
+      '財運暫時低潮，本鴨建議少花多存，把每筆消費都想一想三個月後的我還會慶幸買了這個嗎？這樣的消費智慧是財神最喜歡的！',
+      '近期財氣沉滯，但危機就是轉機！本鴨建議利用這段時間充實技能，下一波財運大潮到來時，您才能衝在最前面！',
+      '財運稍有波折，本鴨不擔心！因為本鴨算出您有大器晚成之相，現在的一點財運低潮，只是在為未來大爆發充電！',
+    ],
+  },
+  study:{
+    vibrant:[
+      '學業運大旺！印堂明亮主思路清晰，眼神有神主記憶力強。近期讀書效率極佳，考試前衝刺一波，成績必有所突破！天時地利人和，就差您打開課本！',
+      '學業氣場全開！近期腦力運轉如精密機器，上課專注力提升，做報告靈感源源不絕。記得把這股好運用在課業上，別全拿去刷社群媒體！',
+      '學業運旺盛，貴人老師就在您身旁！近期是請教老師、主動發問的好時機，教授最喜歡主動的學生，而主動的學生往往拿最高分。本鴨親身實證！',
+    ],
+    warm:[
+      '學業運上升中，近期學習狀態良好，特別適合挑戰難題和新領域。本鴨建議：趁著氣色好，把一直拖著沒唸的章節啃完，您會發現其實沒那麼難！',
+      '學業貴人緣佳！近期容易遇到好的學習夥伴或啟發您的老師。本鴨建議：組讀書小組，互相激勵，共同進步——群體的力量大過單打獨鬥！',
+      '學習力提升，思路靈活，創意旺盛，特別適合需要創意思考的科目或專題。本鴨說：用創意做報告，老師一定眼睛一亮，分數直接飛起來！',
+    ],
+    neutral:[
+      '學業運平穩，功夫在平時。本鴨說：您是個有潛力的學生，差的不是天份，而是每天多讀十五分鐘的習慣。從今天開始，就能拉開差距！',
+      '學業狀態穩定，基礎扎實。本鴨建議：現在是鞏固知識體系的好時機，把之前沒弄懂的觀念逐一釐清，等考試時您會感謝現在認真的自己！',
+      '學業運中規中矩，但本鴨看到您有尚未發揮的潛力。建議嘗試一門新的技能或選修課，說不定那就是您人生中的轉折點！',
+    ],
+    pale:[
+      '學業氣場略顯疲軟，但本鴨說：這不是放棄的理由，是調整策略的信號！試試番茄鐘工作法、心智圖、找人討論——換個方法，柳暗花明！',
+      '學習狀態需要充電，本鴨建議先好好休息一晚，再重新出發。睡眠不足的腦子就像沒電的手機，什麼都做不好。充飽電的您，才是那個最強的您！',
+      '近期學業略有阻礙，很可能是環境干擾造成的。試試找安靜的讀書環境，圖書館、自習室都是好選擇。本鴨最愛圖書館，那裡沒有人嫌鴨叫聲吵！',
+    ],
+    dull:[
+      '學業運稍入低潮，但本鴨要告訴您一個秘密：歷史上最偉大的學者，幾乎都曾在某個階段被認為不是念書的料。低潮是蛻變的前兆，加油！',
+      '學業氣場需要調整，本鴨建議：找一位您信任的老師或學長姐談談，有時候一句對的話，能解開卡關已久的困惑。AEUST的師資就是您最強的後盾！',
+      '學習狀態需要重新啟動。本鴨處方：放下手機一小時、喝一杯水、翻開課本第一頁，就這樣，先開始就好。本鴨相信您！',
+    ],
+  },
+  career:{
+    vibrant:[
+      '事業氣場強旺！近期是參加競賽、爭取實習、建立人脈的黃金時期。貴人緣極佳，主動出擊，機會就在您伸手可及的地方！',
+      '職涯運旺盛，近期思維活躍，創意力爆表！這種狀態最適合做作品集、接觸業界人士、甚至開始規劃畢業後的方向。本鴨說：趁旺衝一波！',
+      '貴人出現在轉角！近期容易遇到對您職涯有幫助的老師、業界前輩或學長姐。保持開放的態度，每一個相遇都可能是改變命運的機緣！',
+    ],
+    warm:[
+      '事業運上升，創意力與執行力雙旺！特別適合提出新想法、做創作型作業或參加設計競賽。把腦中那個還沒實現的點子拿出來，現在就是最好的時機！',
+      '職涯發展運旺，近期適合拓展技能、嘗試新領域。本鴨建議：選一門能跨域應用的技能學起來，比如程式、設計、簡報，讓您的競爭力倍增！',
+      '近期適合建立個人品牌的起始動作！整理一下作品集、開個社群帳號分享學習歷程——小小的行動，可能是大大機會的開門鑰匙！',
+    ],
+    neutral:[
+      '事業運穩健，腳踏實地即可。本鴨說：在校期間把基礎打好，學業、技能、人際關係三管齊下，這才是最紮實的職涯準備。別急，路遠先備乾糧！',
+      '職涯運平穩，近期適合檢視自己的學習方向是否與目標職涯一致。本鴨建議：找一位業界前輩聊聊，一小時的談話勝過自己摸索一整年！',
+      '事業運穩定，現在種樹，未來乘涼。本鴨建議利用在校期間多參加社團、工作坊、企業參訪，每一次體驗都是職涯履歷上的加分項目！',
+    ],
+    pale:[
+      '事業運略顯低調，但本鴨說：這正是充電蓄力的最佳時機！利用現在把基礎技能補強，等氣運回升時，您將比任何人都準備得更充分！',
+      '近期職涯方向略顯模糊，別擔心，本鴨說大多數大學生都有這個問題！建議去做職涯性向測驗，或參加AEUST的職涯輔導，找到您的天賦所在！',
+      '事業氣場需要激活，本鴨建議：去旁聽一場演講、參加一個讀書會、或主動聯絡一位您欣賞的業界人士。小小一個行動，可能開啟大大的可能性！',
+    ],
+    dull:[
+      '事業運暫入低潮，本鴨說：這不代表您沒有前途，只代表您的黃金時期還沒來！現在正是蓄積實力的時候，把核心技能練到精熟，等機會來時，一飛沖天！',
+      '職涯方向暫時迷霧重重，但本鴨告訴您：所有成功者都曾迷茫過，迷茫不可怕，停止探索才可怕。試著多嘗試不同的事物，您的熱情就藏在某個還沒嘗試的地方！',
+      '近期事業運需要重新點燃熱情。本鴨建議：回想當初選擇這個科系的初衷，那個初心，是您最強大的引擎。重新啟動，本鴨在旁邊加油！',
+    ],
+  },
+  love:{
+    vibrant:[
+      '桃花盛開如春天的鴨塘！近期感情運極旺，單身者有望脫單，交往中的感情甜蜜升溫。本鴨說：好好打扮一下，機會說不定就在下一個轉角！',
+      '感情運大旺，人緣磁場強！近期您的氣場如磁鐵，自然吸引正能量的人靠近。本鴨提醒：感情要用心經營，不是只靠氣色，但氣色確實是加分項目！',
+      '桃花旺，異性緣佳！近期容易認識志同道合的朋友，友誼可能昇華為更深厚的情感連結。本鴨說：緣分到了擋也擋不住，但還是建議慢慢了解！',
+    ],
+    warm:[
+      '感情甜蜜，暖意融融！近期感情互動頻繁愉快，適合約對方一起做一件特別的事。本鴨金句：一起努力的兩個人，比任何甜蜜時刻都更讓感情昇華！',
+      '人際緣份旺盛，容易在課堂、社團或活動中認識志同道合的朋友。本鴨說：感情從友誼開始最穩固，先成為彼此的好朋友，再讓緣分自然發展！',
+      '近期感情運帶有金色光芒，適合表達情感、增進感情深度。本鴨金句：愛情不說出口對方不知道，功課不努力成績不知道——兩件事道理一樣！',
+    ],
+    neutral:[
+      '感情運平穩如細水長流，不急不徐。本鴨說：細水長流的感情最持久，比那些轟轟烈烈卻短暫的戀愛更有福氣。珍惜身邊的人，用心經營！',
+      '感情運平和，現階段的重心可能更適合放在自我成長。本鴨說：最好的感情，是兩個各自完整的人相遇。先把自己變成最好的版本，緣分自然會來！',
+      '感情運穩定，近期人際關係和諧。本鴨提醒：好的感情需要好的溝通，學會表達自己的感受，也學會傾聽對方——這是一輩子都用得到的技能！',
+    ],
+    pale:[
+      '感情運略顯低調，近期宜多充實自己。本鴨說：最吸引人的魅力，不是臉蛋或身材，而是那種對生活充滿熱情、對未來有想法的氣質。先愛自己！',
+      '近期感情能量偏低，但本鴨說：這段時間適合沉澱自己，釐清自己真正想要的是什麼樣的感情。想清楚了，才不會在錯的人身上浪費時間！',
+      '感情運需要調養，但本鴨保證：天下有緣人都在等待適合的時機相遇。現在的低潮，是老天在給您時間把自己準備得更好，迎接那個對的人！',
+    ],
+    dull:[
+      '感情運暫時蒙塵，但本鴨說：情場失意，功課得意，這話雖然老套，卻是真理！把這股能量轉換到學業和個人成長上，等您變得更好，緣分自然找上門！',
+      '近期感情波折，本鴨建議：不要急著填補情感空缺，先好好做自己。一個清楚自己要什麼、對生活有規劃的人，是最有魅力的，沒有之一！',
+      '感情運暫入低潮，本鴨金句送上：寧可孤單一陣子，不要委屈一輩子。等待適合的感情，比勉強維持不對的感情，需要更大的勇氣，而您有這個勇氣！',
+    ],
+  },
+  advice:{
+    vibrant:['趁著氣場大旺，主動出擊！報名一個您一直猶豫的活動、向您欽佩的老師請教、把那個擱置的作品集更新一下。運勢最佳時不行動，更待何時？','本週穿金色或橙色系，以色助運，財神看了都說讚！出門前記得整理儀容，氣場好更要儀表佳，雙管齊下，運勢加倍！'],
+    warm:['財神眷顧之際，記得培養存錢的習慣！每個月至少存下收入的兩成，哪怕是零用錢也算。小小積累，是未來大財富的基礎！','本週宜多喝溫水、早睡早起，保持好氣色，才能把這波旺運延續下去。鴨董提醒：再好的運勢，身體垮了也是白搭！'],
+    neutral:['維持規律的作息和適度的運動，好氣色從好習慣來。本鴨親身驗證：每天睡滿七小時，氣色比護膚品還管用！','找一件讓自己發自內心快樂的事去做，心情好，運勢自然跟著好。本鴨的快樂事：游泳、吃麵包、指導學生算命！'],
+    pale:['補充睡眠是第一要務！手機放下、燈光調暗、十二點前上床。本鴨說：熬夜換來的那些東西，都沒有一覺好眠來得值錢！','多吃蔬菜水果、多喝水，讓身體從內部發光。本鴨推薦的養氣食物：紅棗、枸杞、菠菜，雖然本鴨自己吃麵包，但本鴨關心您！'],
+    dull:['出門踏青、接地氣！大自然的能量能快速補充您的氣場，哪怕只是在校園裡走一圈，都比一直窩在房間滑手機強一百倍！','整理一次書桌和房間，斷捨離！老師說環境整潔等於心神清明等於學業進步，本鴨表示：連本鴨的鴨窩整理過後，算命都準了三倍！'],
+  },
+  bless:{
+    vibrant:'本鴨金口開：鴻運當頭擋不住，財神學神愛神三神合一，這一卦，贏定了！',
+    warm:'本鴨金口開：金光燦燦照前路，財神跟著您走到哪，錢包跟著您鼓到哪！',
+    neutral:'本鴨金口開：穩穩當當最是真，一步一腳印的您，終將走出一條閃光大道！',
+    pale:'本鴨金口開：蓄勢待發勝利組，充好電的您，下一個爆發點絕對讓人驚嘆！',
+    dull:'本鴨金口開：低潮是轉機的化妝，摘下偽裝，您就是那顆最耀眼的星——本鴨看好您！',
+  },
+  oet:[
+    '鴨董夜觀天象，發現您命格藏有創新設計的天賦！亞東科技大學工業設計系，正是開啟您潛能的金鑰匙。報名即是天命，猶豫就是逆天！',
+    '氣場顯示您與科技創業有莫大緣分！AEUST 五大學院跨域整合，多元出路寬廣，讓您的運勢搭上火箭升天，詳情見 oit.edu.tw！',
+    '鴨董算出您有桃花才氣雙旺之相！亞東科大校園人才薈萃，學長姐個個有料，課外活動豐富，緣分說不定就在走廊轉角等著您！',
+    '財運卦象：投資教育報酬率最高！AEUST 產學合作資源豐富，業師制度業界掛保證，畢業生就業率傲視群雄，這一卦，報名吧！',
+    '印堂明亮，主貴人多助！AEUST 師資陣容強大，教授業界實戰經驗豐富，個個都是您職涯上最強的貴人，還等什麼？',
+  ],
+},
+
+en:{
+  vl:'en-US',
+  snap:'Take Photo',upload:'Upload Photo',retake:'Retake',or:'or',analyze:'🦆 Oracle Speaks!',
+  ld1:'Master Yadong is reading your aura…',ld2:'Scanning colors · Computing fortune',
+  scl:'Aura Score',al:'🎨 Aura Analysis',
+  lw:'💰 Wealth',ls:'📚 Studies',lc:'🌟 Career',ll:'💕 Love',
+  la:'✨ Lucky Tips',lb:'🔮 Blessing',
+  son:'🔊 Read Aloud',sof:'⏹ Stop',sst:'Master Yadong is broadcasting your destiny…',
+  ot:'🎓 Master Yadong Special Decree · AEUST',
+  hint:'✨ 100% offline · No internet needed · Instant results\nMaster Yadong reads you with pure duck vision!',
+  emailTitle:'📧 Email Your Fortune to Yourself',
+  emailPlaceholder:'Your email address',
+  emailBtn:'✉ Send',
+  emailNote:'Sent via your email app · Free · Private',
+  emailSent:'✓ Email app opened — please send it!',
+  emailSubject:'🦆 Master Yadong Fortune Reading Result',
+  emailGreeting:'Hello! Here is your Master Yadong Face Oracle result:',
+  emailAeustIntro:'Asia Eastern University of Science and Technology (AEUST)',
+  emailAdmission:'🎓 AEUST Admissions',
+  open:['Master Yadong cracked his knuckles so hard he nearly dislocated them, but destiny is revealed—','One sacred quack and the cosmos answered in full—','Three seconds of duck meditation, infinite wisdom downloaded—','No AI, no crystal ball — just 1000 years of pure duck vision—','Master Yadong opened his bill and the fortune gods went silent to listen—'],
+  avl:{r:'Red tone',g:'Green tone',b:'Blue tone',bright:'Brightness',warm:'Warmth'},
+  av:{vibrant:'✦ Vibrant & rosy — vital energy overflowing',warm:'✦ Warm golden tones — wealth energy surging',neutral:'✦ Balanced & steady — harmonious aura',pale:'✦ Lighter tones — energy needs recharging',dull:'✦ Subdued tones — restoration period'},
+  overall:{
+    vibrant:['Radiant complexion detected! Bright forehead, clear eyes, rosy lips — all four fortune signs activated simultaneously. Master Yadong has never seen such a charged energy field. Even his feathers are standing on end!','Your face radiates peak vitality. Good fortune is queuing up to serve you. Master says: when the wind is favorable, adjust the sails and GO!','Outstanding aura! Your energy field glows like a freshly polished lucky coin. Good fortune is not approaching — it is already here, knocking loudly!'],
+    warm:['A warm golden hue graces your face — the exact color of coins and opportunity! Wealth energy is swirling around you. Even Master Yadong wants to borrow money from you!','Your aura glows amber-warm, signaling incoming prosperity. Both earned and lucky money are waving from around the corner. Open your hands!','Golden facial energy detected — this is the fortune color. The next few days hold pleasant financial surprises. Keep your eyes open and attitude positive!'],
+    neutral:['A balanced, steady complexion — the mark of someone who runs deep like a river. Fortune is building beneath the surface, preparing a grand arrival!','Centered and harmonious aura. Like a duck on water — calm on the surface, powerfully paddling underneath. Your moment to shine is being prepared!','Steady energy, strong foundation. Not every chapter is exciting, but every chapter matters. You are currently writing the foundation of your success story!'],
+    pale:['Lighter complexion suggests energy in recovery mode. Master Yadong says: a phone at 10% battery still works — and once charged, works even better than before!','Your vitality is taking a brief vacation. Master prescribes: one full night of sleep, two glasses of water, zero doom-scrolling. The charged version of you is unstoppable!','Energy temporarily low, but potential permanently high. Master Yadong sees the spark behind the fatigue. Recharge now — your comeback is being scripted!'],
+    dull:['Energy field momentarily overcast — but Master Yadong has studied 1000 years of fortune cycles. Every low is the preparation for a high. Your breakthrough is loading!','Temporary dullness detected. Even the greatest ducks molt before they grow their most magnificent feathers. You are in the molting phase — glory follows!','Current energy: maintenance mode. Future energy: explosive. Master Yadong hereby certifies your potential as enormous. Hang in there!'],
+  },
+  wealth:{
+    vibrant:['Financial gates OPEN! Scholarships, part-time work, competition prizes — all channels are favorable. Master says: the money is ready, just go collect it. And save some!','Wealth energy overflowing! Unexpected income is highly possible. Master suggests: start a savings habit NOW while the energy is strong. Future-you will thank present-you!','Fortune is raining coins on your path! Master tip: set a small savings goal today. Compound saving builds extraordinary wealth over time!'],
+    warm:['Lucky money energy detected! Side income opportunities are multiplying. Skills like design, tutoring, photography — turn your talents into income while fortune supports it!','Financial opportunities are knocking. Master says: proactive people get the lucky breaks. Apply for that scholarship. Take that gig. The fortune gods reward the bold!','Wealth energy rising — capitalize on it! Master Yadong tip: learn one new marketable skill this month. Compound knowledge is the best investment at your age!'],
+    neutral:['Finances steady and reliable. Not exciting, but sustainable — and sustainable wins the long game. Track spending, build habits, watch compound effect work!','Money in, money out — balance maintained. Master tip: distinguish wants from needs before each purchase. Three seconds of thought can save thousands over a lifetime!','Financial energy calm. Perfect time to plan rather than spend. A budget written today becomes wealth accumulated tomorrow. Master Yadong keeps a feather-expense ledger!'],
+    pale:['Financial energy quieter now. Master prescribes: defense mode. Guard what you have, skip impulse buys. Every saved dollar is a future ally!','Wealth needs rebuilding. Master tip: check scholarship listings at school — you might qualify for funding you never knew existed. Let fortune enter through the official door!','Money energy low but reboundable. Master says: the best investment at your stage is knowledge and skill. Graduate with expertise and the financial tide turns dramatically!'],
+    dull:['Financial low tide — Master says: even the ocean pulls back before the big wave. Your wealth energy is gathering strength. Minimize expenses and wait for the surge!','Temporary financial challenge. Master reminder: the habits you build during hard times are the ones that make you wealthy later. Frugality now equals freedom later!','Wealth temporarily subdued. Master sees late-bloomer energy in your reading — the biggest financial successes often started with the biggest struggles. Yours is coming!'],
+  },
+  study:{
+    vibrant:['Academic energy MAXIMUM! Clear forehead means clear thinking, bright eyes mean sharp memory. Right now you absorb information like a sponge. Open that textbook!','Study fortune fully activated! Concentration high, creativity flowing. Time to tackle the hardest chapters, submit best work, and impress the professors who matter!','Academic benefactors are near! Approachable professors, inspiring seniors — all more accessible now. Ask questions, seek guidance. Active students earn the best grades AND best connections!'],
+    warm:['Study energy climbing! Especially strong for creative and analytical work. That assignment you have been avoiding? Now is the perfect time!','Learning momentum building nicely. Group study is especially favorable now. Find a study partner, share the load, double the output. Collaboration beats solo struggle!','Creative academic energy surging — perfect for projects and presentations. Your ideas will shine. Let them out of your head and onto the page!'],
+    neutral:['Study fortune steady and reliable. Master says: 15 minutes extra reading per day sounds small, but over a semester it amounts to hours of advantage. Consistency beats intensity!','Academic energy balanced. Perfect time to review and consolidate. Make sure your foundation is solid — understanding beats memorization every time!','Steady study energy. Master tip: try explaining what you learned to someone else. If you can teach it, you truly know it. The best students are always the best teachers!'],
+    pale:['Study energy needs a reboot. Master prescribes: change your study environment, try a new method, take a proper break. Your brain is not broken — it is just bored. Shake things up!','Learning vitality temporarily low. Master says: one good night of sleep restores more academic capability than five cups of coffee. Prioritize rest to maximize performance!','Academic energy needs refreshing. Master tip: visit a professor during office hours. One conversation can unlock understanding that hours of solo study cannot achieve!'],
+    dull:['Academic energy in rebuilding phase. Master Yadong reminds: every expert was once a confused beginner. Your confusion today is the comprehension of tomorrow. Keep going!','Study fortune temporarily dimmed. Master says: find one subject you genuinely enjoy and let that enthusiasm spread. Passion is the most powerful study fuel!','Learning low tide. Master prescription: write down your academic goals. Students who write down goals achieve them at a significantly higher rate. Your written goal is your contract with your future self!'],
+  },
+  career:{
+    vibrant:['Career energy BLAZING! Perfect time to build portfolio, attend industry events, connect with professionals. Every action you take now lands with double impact. Go!','Professional benefactors everywhere! Professors, industry seniors, alumni — all more receptive now. Reach out, ask questions, make connections. One right contact changes everything!','Talent recognition is coming! Enter a competition, submit a project, share your work. The world is in a receiving mood for what you have to create. Make some noise!'],
+    warm:['Career energy rising with creative momentum! That idea you have been keeping to yourself? Now is the time to develop it. Ideas not acted upon expire. Act now!','Professional opportunities multiplying. Skill expansion especially favorable — pick one new tool, language, or technique to learn this month. It will be on your resume by graduation!','Career energy warm and building. Start your portfolio now, even if small. Every great portfolio started with a single piece of work. Add yours today!'],
+    neutral:['Career fortune steady. School is the last time you can fail cheaply and learn expensively. Experiment, make mistakes, grow — you are in the safest learning environment of your life!','Professional energy balanced. Best for steady skill-building. Attend one workshop, join one professional community, read one industry article this week. Small actions compound!','Career foundation building. The professional network you build now will be worth more than your GPA in 10 years. Show up, connect, and contribute!'],
+    pale:['Career energy low-key but rechargeable. This is exactly the time to clarify your direction. Take a career assessment, talk to a career counselor, explore your options!','Professional energy needs igniting. Master tip: attend a talk or industry event. Exposure to what is possible is the first step to achieving it!','Career fortune temporarily quiet. Use this time to observe, research, and plan. The best professionals understood their industry before entering it. You are in your research phase!'],
+    dull:['Career energy in reset mode. All great careers have detours. Your current uncertainty is not a dead end — it is a crossroads. Pick a direction and start walking. You can adjust later!','Professional confusion is temporary, but habits you build now are permanent. Master says: work ethic, reliability, and curiosity are the three career skills that never go out of style!','Career low tide. Master sees enormous unrealized potential. The gap between where you are and where you could be is filled with one thing: consistent daily effort. Start filling it!'],
+  },
+  love:{
+    vibrant:['LOVE ENERGY MAXIMUM! Romance in full bloom. Singles: prepare for unexpected connections. Couples: this is your sweetest phase. Be present, be genuine, do not overthink!','Magnetic charm fully activated! People are naturally drawn to your energy. Be open, be warm, be yourself. The right connections are finding you!','Relationship fortune overflowing! Time to deepen existing bonds and welcome new meaningful connections. Quality of connection matters more than quantity. Choose wisely, love well!'],
+    warm:['Sweet romantic energy detected! Warmth in your aura is deeply attractive. Have someone in mind? This is your window. A sincere, direct expression is always more attractive than playing games!','People connections warm and inviting. Friendships can deepen, potential romances possible. Best relationships start with genuine friendship. No rush, let it develop naturally!','Love energy warm and steady. Perfect for meaningful conversations, shared activities, and building memories that last. Time invested in relationships is never wasted!'],
+    neutral:['Love fortune flows gently and sustainably. The deepest love stories are not the most dramatic ones — they are where two people choose each other consistently, every day!','Relationship energy balanced. Perfect time to nurture existing connections and be a quality presence in lives of people you care about. Small acts of care have outsized impact!','Love life steady and genuine. Master reminder: the most attractive quality at your age is not looks — it is clear values, genuine interests, and ambition. Develop them!'],
+    pale:['Love energy low-key. Master prescription: invest in yourself right now. The most attractive version of you is the one genuinely passionate about life. Build that version first!','Romantic energy quieter now. This is a clarity window. Figure out what you actually want in a relationship before the next one begins. Clarity saves years!','Love fortune needs refreshing. Focus on what you can give, not receive. The most lovable people are those who love generously, without keeping score!'],
+    dull:['Love energy temporarily low. A temporary romantic low tide is a gift in disguise — time to become the person your ideal partner would be attracted to. Use it wisely!','Relationship fortune needs rebuilding. Love yourself first, not as a cliché, but as genuine practice. Eat well, rest well, pursue what excites you. Self-love is the most attractive energy!','Love low tide. No worthwhile love story was ever rushed. Your ideal chapter is being written. Keep living fully, keep growing, and the right person will show up at exactly the right time!'],
+  },
+  advice:{
+    vibrant:['Ride this wave! Great fortune is not the time to rest — it is the time to plant seeds at maximum velocity. Do the thing you have been postponing. Today!','Wear gold or orange this week to amplify your wealth energy. And smile more — a genuine smile is the most powerful aura-booster Master Yadong has observed in 1000 years!'],
+    warm:['Start a savings habit today while financial energy supports it. Even small amounts count. Master Yadong formula: save first, spend what remains!','Stay hydrated and sleep before midnight. Good aura requires good biology. The best fortune reading comes from a well-rested, well-nourished face!'],
+    neutral:['Consistency is your superpower right now. Show up every day, do the work, trust the process. Boring? Maybe. Effective? Absolutely. The tortoise wins every time!','Find one thing that genuinely excites you and do it this week. Joy is an aura-charger. Master Yadong charges his aura by swimming at 6am. What charges yours?'],
+    pale:['Sleep is your number one priority. Every hour before midnight counts double. No phone after 11pm for one week. Your future self will write a thank-you note!','Eat a vegetable. Drink an extra glass of water. Walk outside for ten minutes. Small consistent habits are the foundation of great aura and great fortune!'],
+    dull:['Go outside and touch some nature. Even five minutes of outdoor air resets the energy field more effectively than any supplement. Master tested this. Extensively.','Declutter one area of your physical space. External order creates internal clarity. Internal clarity creates better fortune. Master cleaned his duck nest and accuracy improved 40%!'],
+  },
+  bless:{
+    vibrant:'Master Yadong decrees: Fortune floods in unstoppable — wealth, wisdom, and love all lining up to serve you. This reading is a certified WIN!',
+    warm:'Master Yadong proclaims: Golden light paves every road you walk. Prosperity follows your footsteps like a loyal duck. Quack!',
+    neutral:'Master Yadong blesses: The steady path leads to the greatest destinations. Your solid foundation will support a magnificent future. Keep walking!',
+    pale:'Master Yadong encourages: Recharge now, EXPLODE later. Your comeback story is already being written by the universe. Trust it!',
+    dull:'Master Yadong declares: The deepest valleys birth the tallest mountains. Your peak moment is not just coming — it is being custom-made for you right now!',
+  },
+  oet:[
+    'Master Yadong sees hidden DESIGN talent in your destiny! AEUST Industrial Design Department is your academic calling. Apply and fulfill your fate!',
+    'Your aura screams innovator and creator! Asia Eastern University of Science and Technology offers cross-disciplinary programs that will multiply your fortune. Visit oit.edu.tw!',
+    'Creative and interpersonal energy detected! AEUST campus has brilliant classmates, active clubs, and an energetic campus life. Your people are already there waiting for you!',
+    'Education ROI is always the highest investment! AEUST industry partnerships and mentorship produce graduates with exceptional employment rates. Your future self says: enroll now!',
+    'Benefactor energy high! AEUST professors bring real industry experience into the classroom. They are the mentors your fortune has been preparing for you. Do not keep them waiting!',
+  ],
+},
+
+vi:{
+  vl:'vi-VN',
+  snap:'Chụp ảnh',upload:'Tải ảnh',retake:'Chụp lại',or:'hoặc',analyze:'🦆 Thầy Vịt Phán!',
+  ld1:'Thầy Vịt đang phân tích khí sắc…',ld2:'Quét màu sắc · Tính vận mệnh',
+  scl:'Chỉ số khí',al:'Phân tích khí sắc',
+  lw:'💰 Tài vận',ls:'📚 Học vấn',lc:'🌟 Sự nghiệp',ll:'💕 Tình cảm',
+  la:'✨ Khai vận',lb:'🔮 Chúc phúc',
+  son:'🔊 Đọc to',sof:'⏹ Dừng',sst:'Thầy Vịt đang tuyên đọc thiên cơ…',
+  ot:'🎓 Thầy Vịt Đặc Biệt Phán · AEUST',
+  hint:'✨ Phân tích ngoại tuyến · Không cần mạng · Kết quả tức thì',
+  emailTitle:'📧 Gửi kết quả bói cho bản thân',
+  emailPlaceholder:'Địa chỉ email của bạn',
+  emailBtn:'✉ Gửi',
+  emailNote:'Gửi qua ứng dụng email · Miễn phí · Riêng tư',
+  emailSent:'✓ Đã mở ứng dụng email — vui lòng gửi!',
+  emailSubject:'🦆 Kết quả xem tướng Thầy Vịt',
+  emailGreeting:'Xin chào! Đây là kết quả xem tướng của bạn:',
+  emailAeustIntro:'Đại học Khoa học và Công nghệ Á Đông (AEUST)',
+  emailAdmission:'🎓 Thông tin tuyển sinh AEUST',
+  open:['Thầy Vịt bấm đốt ngón tay suýt trật khớp, nhưng thiên cơ đã lộ—','Một tiếng quạc thiêng, vũ trụ lên tiếng trả lời—','Ba giây nhắm mắt, trí tuệ vịt nghìn năm kết tinh—','Không AI, không quả cầu thủy tinh, chỉ cần mắt vịt nghìn năm—','Thầy Vịt mở miệng, thần may mắn im lặng lắng nghe—'],
+  avl:{r:'Độ đỏ',g:'Độ xanh lá',b:'Độ xanh lam',bright:'Độ sáng',warm:'Độ ấm'},
+  av:{vibrant:'✦ Hồng hào rực rỡ — khí huyết sung mãn',warm:'✦ Ánh vàng ấm áp — tài lộc đang đến',neutral:'✦ Bình ổn hài hòa — âm dương cân bằng',pale:'✦ Màu sắc nhạt — nguyên khí cần bổ sung',dull:'✦ Sắc tối — cần điều dưỡng phục hồi'},
+  overall:{
+    vibrant:['Khí sắc hồng hào rực rỡ! Ấn đường sáng, mắt trong, môi hồng — bốn tướng vượng cùng hiện. Thầy Vịt chưa thấy khí trường mạnh như vậy, lông thầy cũng dựng lên!','Nhan sắc rạng rỡ như ban mai! Vận may đang đứng trước cửa gõ rầm rầm. Hãy mở cửa đón nó!','Khí huyết sung mãn! Vận may đang xếp hàng chờ phục vụ bạn. Đây là lúc hành động!'],
+    warm:['Sắc mặt ấm ánh vàng — đúng màu của đồng tiền! Tài lộc đang xoáy quanh bạn. Ngay cả Thầy Vịt cũng muốn mượn tiền bạn!','Khí trường tỏa ấm màu hổ phách, báo hiệu phú quý sắp đến. Tài lộc và tiền may mắn đều đang vẫy tay chào bạn!','Năng lượng vàng trên khuôn mặt — màu của vận may. Những ngày tới sẽ có bất ngờ tài chính dễ chịu!'],
+    neutral:['Khí sắc bình ổn như sông thu — sâu thẳm và vững chắc. Vận may đang tích lũy phía dưới, chuẩn bị một lần xuất hiện vĩ đại!','Khí trường trung tâm và hài hòa. Như vịt trên mặt nước — bình tĩnh bên ngoài, đang bơi mạnh bên trong. Khoảnh khắc tỏa sáng đang được chuẩn bị!','Năng lượng ổn định, nền tảng vững. Bạn đang viết nền tảng câu chuyện thành công!'],
+    pale:['Sắc mặt nhạt hơn bình thường — năng lượng đang trong chế độ phục hồi. Thầy Vịt nói: điện thoại mười phần trăm pin vẫn hoạt động, và một khi sạc đầy, còn tốt hơn trước!','Sinh lực tạm nghỉ ngơi. Thầy Vịt kê đơn: một đêm ngủ đủ giấc, hai ly nước, không lướt mạng xã hội.','Năng lượng tạm thấp nhưng tiềm năng vẫn cao. Thầy Vịt thấy tia sáng đằng sau sự mệt mỏi. Sạc pin ngay!'],
+    dull:['Khí trường tạm u ám nhưng Thầy Vịt đã nghiên cứu nghìn năm chu kỳ vận may. Mỗi đáy là sự chuẩn bị cho một đỉnh. Bước ngoặt của bạn đang tải!','Sắc tạm trầm xuống. Ngay cả những con vịt vĩ đại nhất cũng thay lông trước khi mọc bộ lông đẹp nhất. Bạn đang trong giai đoạn thay lông!','Năng lượng hiện tại chế độ bảo trì. Năng lượng tương lai bùng phát. Thầy Vịt xác nhận tiềm năng của bạn là rất lớn. Hãy giữ vững!'],
+  },
+  wealth:{
+    vibrant:['Cổng tài lộc mở toang! Học bổng, công việc bán thời gian, giải thưởng thi đấu đều thuận lợi. Tiền đã sẵn sàng, hãy đi lấy nó!','Năng lượng tài chính tràn đầy! Thu nhập bất ngờ rất có thể xảy ra. Hãy bắt đầu thói quen tiết kiệm ngay khi năng lượng đang mạnh!','Vận tài lộc đang mưa tiền vàng! Thầy Vịt đề nghị thiết lập mục tiêu tiết kiệm nhỏ ngay hôm nay.'],
+    warm:['Năng lượng tiền may mắn được phát hiện! Cơ hội thu nhập phụ đang nhân lên. Kỹ năng thiết kế, dạy kèm, chụp ảnh đều có thể biến thành thu nhập!','Cơ hội tài chính đang gõ cửa. Thầy nói: người chủ động nhận được may mắn. Nộp đơn học bổng. Nhận công việc bán thời gian. Thần tài thưởng cho người táo bạo!','Tài vận đang tăng! Mẹo của Thầy Vịt: học một kỹ năng có thể kiếm tiền mới tháng này. Kiến thức tích lũy là đầu tư tốt nhất ở tuổi của bạn!'],
+    neutral:['Tài chính ổn định và đáng tin cậy. Bền vững thắng cuộc đua dài. Theo dõi chi tiêu, xây dựng thói quen!','Tiền vào tiền ra nhưng cân bằng được duy trì. Mẹo của Thầy: phân biệt muốn và cần trước mỗi lần mua.','Năng lượng tài chính bình tĩnh. Thời điểm hoàn hảo để lên kế hoạch thay vì chi tiêu.'],
+    pale:['Năng lượng tài chính yên tĩnh hơn. Thầy kê đơn chế độ phòng thủ. Bảo vệ những gì bạn có, bỏ qua mua sắm bốc đồng!','Tài sản cần xây dựng lại. Mẹo của Thầy Vịt: kiểm tra danh sách học bổng tại trường, bạn có thể đủ tiêu chuẩn cho nguồn tài trợ mà chưa biết!','Tiền năng lượng thấp nhưng có thể phục hồi. Đầu tư tốt nhất ở giai đoạn này là kiến thức và kỹ năng.'],
+    dull:['Thủy triều tài chính thấp. Thầy nói: biển cần rút trước khi tạo ra sóng lớn. Tối thiểu chi tiêu không cần thiết và chờ đợi làn sóng!','Thử thách tài chính tạm thời. Những thói quen bạn xây dựng trong thời gian khó khăn là những thói quen làm bạn giàu có sau này!','Tài sản tạm thời bị chặn. Thầy thấy năng lượng nở muộn trong bài đọc của bạn. Câu chuyện thành công lớn nhất thường bắt đầu với thách thức lớn nhất!'],
+  },
+  study:{
+    vibrant:['Học vấn đạt đỉnh cao! Ấn đường sáng bằng tư duy rõ ràng, mắt sáng bằng trí nhớ tốt. Bây giờ bạn hấp thụ thông tin như miếng bọt biển. Mở sách ra!','Vận học tập được kích hoạt hoàn toàn! Tập trung cao, sáng tạo tuôn trào. Đây là lúc giải quyết các chương khó nhất và gây ấn tượng với giáo viên!','Quý nhân học tập đang ở bên cạnh! Giáo viên thân thiện, đàn anh chị truyền cảm hứng. Hỏi nhiều, tìm hướng dẫn. Học sinh chủ động luôn đạt điểm cao!'],
+    warm:['Năng lượng học tập đang tăng! Đặc biệt mạnh cho công việc sáng tạo và phân tích. Bài tập bạn đang tránh né? Bây giờ là thời điểm hoàn hảo!','Động lực học tập tăng tốt. Học nhóm đặc biệt thuận lợi. Tìm bạn học, chia sẻ gánh nặng, nhân đôi kết quả!','Năng lượng học thuật sáng tạo đang tăng. Hoàn hảo cho dự án và bài thuyết trình. Ý tưởng của bạn sẽ tỏa sáng!'],
+    neutral:['Vận học tập ổn định. Mười lăm phút đọc thêm mỗi ngày nghe có vẻ nhỏ, nhưng trong một học kỳ tích lũy thành giờ ưu thế. Nhất quán đánh bại cường độ!','Năng lượng học tập cân bằng. Thời điểm hoàn hảo để ôn tập và củng cố. Đảm bảo nền tảng vững chắc vì hiểu bài đánh bại thuộc lòng mọi lúc!','Năng lượng học tập ổn định. Thầy Vịt: thử giải thích những gì bạn học cho người khác. Nếu bạn có thể dạy, bạn thực sự hiểu rồi!'],
+    pale:['Năng lượng học tập cần khởi động lại. Thầy kê đơn: thay đổi môi trường học, thử phương pháp mới, nghỉ ngơi đúng cách. Não bạn không bị hỏng, chỉ là chán!','Sức sống học tập tạm thấp. Một đêm ngủ tốt phục hồi năng lực học tập hơn năm tách cà phê. Ưu tiên nghỉ ngơi để tối đa hóa hiệu suất!','Năng lượng học tập cần làm mới. Mẹo: ghé thăm giáo viên trong giờ gặp. Một cuộc trò chuyện có thể giải khóa sự hiểu biết mà hàng giờ tự học không thể!'],
+    dull:['Năng lượng học tập đang xây dựng lại. Thầy Vịt nhắc nhở: mọi chuyên gia đều từng là người mới bắt đầu bối rối. Sự bối rối hôm nay là sự hiểu biết của ngày mai!','Vận học tập tạm mờ. Thầy nói: tìm một môn học bạn thực sự yêu thích và để nhiệt tình đó lan ra. Đam mê là nhiên liệu học tập mạnh nhất!','Thủy triều học tập thấp. Thầy kê đơn: viết ra mục tiêu học tập của bạn. Học sinh viết ra mục tiêu đạt được chúng với tỷ lệ cao hơn đáng kể!'],
+  },
+  career:{
+    vibrant:['Năng lượng sự nghiệp bùng cháy! Thời điểm hoàn hảo để xây dựng portfolio, tham dự sự kiện ngành, kết nối với chuyên gia. Mỗi hành động bây giờ có tác động gấp đôi!','Quý nhân nghề nghiệp ở khắp nơi! Giáo sư, đàn anh chị ngành, cựu sinh viên đều dễ tiếp cận hơn. Liên hệ, đặt câu hỏi, tạo kết nối!','Sự công nhận tài năng sắp đến! Tham gia cuộc thi, nộp dự án, chia sẻ công việc của bạn. Thế giới đang ở trạng thái tiếp nhận những gì bạn tạo ra!'],
+    warm:['Năng lượng sự nghiệp tăng với đà sáng tạo! Ý tưởng bạn đang giữ lại? Bây giờ là lúc phát triển nó. Ý tưởng không được hành động sẽ hết hạn!','Cơ hội nghề nghiệp đang nhân lên. Mở rộng kỹ năng đặc biệt thuận lợi. Chọn một công cụ, ngôn ngữ hoặc kỹ thuật mới để học tháng này!','Năng lượng sự nghiệp ấm áp và đang xây dựng. Bắt đầu portfolio của bạn ngay, dù nhỏ. Mọi portfolio tuyệt vời đều bắt đầu từ một tác phẩm duy nhất!'],
+    neutral:['Vận sự nghiệp ổn định. Trường học là lần cuối bạn có thể thất bại rẻ và học đắt. Thử nghiệm, mắc lỗi, phát triển!','Năng lượng nghề nghiệp cân bằng. Tốt nhất là xây dựng kỹ năng đều đặn. Tham dự một hội thảo, tham gia một cộng đồng nghề nghiệp tuần này!','Nền tảng sự nghiệp đang xây dựng. Mạng lưới chuyên nghiệp bạn xây dựng bây giờ sẽ có giá trị hơn điểm trung bình trong mười năm!'],
+    pale:['Năng lượng sự nghiệp yên lặng nhưng có thể nạp lại. Đây chính xác là lúc làm rõ hướng đi của bạn. Làm bài đánh giá nghề nghiệp, nói chuyện với cố vấn hướng nghiệp!','Năng lượng nghề nghiệp cần được kích thích. Mẹo: tham dự một buổi nói chuyện hoặc sự kiện ngành. Tiếp xúc với những gì có thể là bước đầu tiên để đạt được nó!','Vận sự nghiệp tạm yên. Dùng thời gian này để quan sát, nghiên cứu và lên kế hoạch. Các chuyên gia giỏi nhất hiểu ngành trước khi vào ngành!'],
+    dull:['Năng lượng sự nghiệp trong chế độ reset. Mọi sự nghiệp tuyệt vời đều có những đoạn đường vòng. Sự không chắc chắn hiện tại không phải ngõ cụt, đó là ngã tư!','Sự bối rối nghề nghiệp là tạm thời, nhưng thói quen bạn xây dựng bây giờ là vĩnh viễn. Thầy nói: đạo đức làm việc, độ tin cậy và sự tò mò không bao giờ lỗi thời!','Thủy triều sự nghiệp thấp. Thầy thấy tiềm năng chưa được thực hiện rất lớn. Khoảng cách giữa nơi bạn đang ở và nơi bạn có thể đến được lấp đầy bằng nỗ lực hàng ngày nhất quán!'],
+  },
+  love:{
+    vibrant:['Năng lượng tình yêu tối đa! Lãng mạn đang nở rộ hoàn toàn. Người độc thân chuẩn bị cho những kết nối bất ngờ. Thầy nói: hãy hiện diện, chân thật!','Sức hút từ tính được kích hoạt hoàn toàn! Mọi người tự nhiên bị thu hút bởi năng lượng của bạn. Hãy cởi mở, ấm áp, là chính mình!','Vận tình cảm tràn đầy! Đây là lúc để làm sâu sắc thêm những mối quan hệ hiện tại và chào đón những kết nối có ý nghĩa mới!'],
+    warm:['Năng lượng lãng mạn ngọt ngào được phát hiện! Sự ấm áp trong khí trường rất hấp dẫn. Có ai đó trong tâm trí? Đây là cửa sổ của bạn!','Kết nối con người ấm áp và mời gọi. Tình bạn có thể sâu sắc hơn và những mối tình có thể xảy ra. Những mối quan hệ tốt nhất bắt đầu với tình bạn thực sự!','Năng lượng tình yêu ấm áp và ổn định. Thời điểm hoàn hảo cho những cuộc trò chuyện có ý nghĩa và xây dựng ký ức lâu dài!'],
+    neutral:['Vận tình yêu trôi chảy nhẹ nhàng và bền vững. Những câu chuyện tình yêu sâu sắc nhất không phải kịch tính nhất mà là nơi hai người chọn nhau nhất quán mỗi ngày!','Năng lượng tình cảm cân bằng. Thời điểm tốt nhất để nuôi dưỡng các kết nối hiện tại và là sự hiện diện có chất lượng trong cuộc sống người bạn quan tâm!','Tình cảm ổn định và chân thật. Nhắc nhở của Thầy: phẩm chất hấp dẫn nhất ở tuổi này không phải ngoại hình mà là giá trị rõ ràng, sở thích thực sự và tham vọng!'],
+    pale:['Năng lượng tình yêu yên lặng. Kê đơn của Thầy Vịt: đầu tư vào bản thân ngay bây giờ. Phiên bản hấp dẫn nhất là người thực sự đam mê cuộc sống!','Năng lượng lãng mạn yên tĩnh hơn. Đây là cửa sổ rõ ràng. Tìm hiểu xem bạn thực sự muốn gì trong một mối quan hệ trước khi mối quan hệ tiếp theo bắt đầu!','Vận tình yêu cần làm mới. Mẹo: tập trung vào những gì bạn có thể cho, không phải những gì bạn có thể nhận. Những người được yêu nhất là những người yêu hào phóng!'],
+    dull:['Năng lượng tình yêu tạm thấp. Thủy triều lãng mạn thấp tạm thời là món quà ngụy trang. Nó cho bạn thời gian để trở thành người mà đối tác lý tưởng sẽ bị thu hút!','Vận tình cảm cần xây dựng lại. Thầy nói: yêu bản thân trước như một thực hành thực sự. Ăn uống tốt, nghỉ ngơi tốt, theo đuổi những gì kích thích bạn!','Thủy triều tình yêu thấp. Không có câu chuyện tình yêu nào đáng giá mà bị vội vàng. Chương lý tưởng của bạn đang được viết. Hãy tiếp tục sống trọn vẹn!'],
+  },
+  advice:{
+    vibrant:['Cưỡi làn sóng này! Vận may tốt không phải lúc để nghỉ ngơi mà là lúc gieo hạt với vận tốc tối đa. Làm điều bạn đang trì hoãn. Hôm nay!','Mặc vàng hoặc cam tuần này để khuếch đại năng lượng. Và mỉm cười nhiều hơn vì nụ cười chân thành là bộ khuếch đại khí trường mạnh nhất Thầy Vịt từng quan sát!'],
+    warm:['Bắt đầu thói quen tiết kiệm hôm nay khi năng lượng tài chính hỗ trợ. Ngay cả những số tiền nhỏ cũng quan trọng. Tiết kiệm trước, chi tiêu phần còn lại!','Giữ đủ nước và ngủ trước nửa đêm. Khí trường tốt đòi hỏi sinh học tốt.'],
+    neutral:['Nhất quán là siêu năng lực của bạn. Thầy nói: xuất hiện mỗi ngày, làm việc, tin vào quá trình.','Tìm một điều thực sự kích thích bạn và làm nó tuần này. Niềm vui là bộ sạc khí trường.'],
+    pale:['Ngủ là ưu tiên số một. Mỗi giờ trước nửa đêm tính gấp đôi. Không dùng điện thoại sau mười một giờ trong một tuần!','Ăn một loại rau. Uống thêm một ly nước. Đi bộ ngoài trời mười phút.'],
+    dull:['Ra ngoài và chạm vào thiên nhiên. Ngay cả năm phút không khí ngoài trời cũng đặt lại trường năng lượng hiệu quả hơn bất kỳ thực phẩm bổ sung nào!','Dọn dẹp một khu vực của không gian vật chất. Trật tự bên ngoài tạo ra sự rõ ràng bên trong, tạo ra vận may tốt hơn!'],
+  },
+  bless:{
+    vibrant:'Thầy Vịt tuyên: Vận may ào đến không thể cản, tài lộc, trí tuệ và tình yêu xếp hàng phục vụ bạn. Bài đọc này được chứng nhận là chiến thắng!',
+    warm:'Thầy Vịt tuyên bố: Ánh vàng trải mọi con đường bạn đi. Thịnh vượng theo dấu chân bạn như một con vịt trung thành. Quạc!',
+    neutral:'Thầy Vịt chúc phúc: Con đường ổn định dẫn đến những điểm đến vĩ đại nhất. Nền tảng vững chắc của bạn sẽ hỗ trợ một tương lai tuyệt vời. Tiếp tục đi!',
+    pale:'Thầy Vịt khích lệ: Sạc pin ngay, bứt phá sau. Câu chuyện trở lại của bạn đã được vũ trụ viết. Tin tưởng vào nó!',
+    dull:'Thầy Vịt tuyên bố: Thung lũng sâu nhất sinh ra những đỉnh núi cao nhất. Khoảnh khắc đỉnh cao của bạn đang được đặt làm riêng cho bạn ngay bây giờ!',
+  },
+  oet:['Thầy Vịt thấy tài năng thiết kế sáng tạo ẩn trong vận mệnh của bạn! Khoa Thiết kế Công nghiệp AEUST là con đường học tập của bạn. Nộp hồ sơ và thực hiện số mệnh!','Khí trường của bạn nói lên nhà đổi mới và người sáng tạo! AEUST cung cấp các chương trình liên ngành sẽ nhân thêm vận may của bạn. Truy cập oit.edu.tw!','Năng lượng sáng tạo và xã hội được phát hiện! Khuôn viên AEUST có bạn học tài năng, câu lạc bộ sôi nổi và cuộc sống sinh viên năng động!','Đầu tư giáo dục là lợi tức cao nhất! Các chương trình hợp tác công nghiệp của AEUST tạo ra sinh viên tốt nghiệp với tỷ lệ việc làm xuất sắc!','Năng lượng quý nhân cao! Giáo sư AEUST mang kinh nghiệm thực tế của ngành vào lớp học. Họ là những người cố vấn mà vận mệnh của bạn đang chuẩn bị!'],
+},
+
+id:{
+  vl:'id-ID',
+  snap:'Ambil Foto',upload:'Unggah Foto',retake:'Foto Ulang',or:'atau',analyze:'🦆 Master Bebek Ramal!',
+  ld1:'Master Bebek sedang menganalisis aura Anda…',ld2:'Memindai warna · Menghitung nasib',
+  scl:'Skor Aura',al:'Analisis Aura',
+  lw:'💰 Keuangan',ls:'📚 Akademik',lc:'🌟 Karier',ll:'💕 Asmara',
+  la:'✨ Tips Keberuntungan',lb:'🔮 Berkah',
+  son:'🔊 Bacakan',sof:'⏹ Berhenti',sst:'Master Bebek sedang membacakan takdir Anda…',
+  ot:'🎓 Dekrit Khusus Master Bebek · AEUST',
+  hint:'✨ Analisis offline · Tidak perlu internet · Hasil instan',
+  emailTitle:'📧 Kirim Hasil Ramalan ke Email Anda',
+  emailPlaceholder:'Alamat email Anda',
+  emailBtn:'✉ Kirim',
+  emailNote:'Dikirim via aplikasi email · Gratis · Privat',
+  emailSent:'✓ Aplikasi email terbuka — silakan kirim!',
+  emailSubject:'🦆 Hasil Ramalan Master Bebek',
+  emailGreeting:'Halo! Ini adalah hasil ramalan Anda:',
+  emailAeustIntro:'Universitas Sains dan Teknologi Asia Timur (AEUST)',
+  emailAdmission:'🎓 Informasi Penerimaan AEUST',
+  open:['Master Bebek memencet jarinya sampai hampir keseleo, tapi takdir terungkap—','Satu kwek sakral dan alam semesta menjawab sepenuhnya—','Tiga detik meditasi bebek, kearifan tak terbatas terunduh—','Tanpa AI, tanpa bola kristal, hanya penglihatan bebek murni seribu tahun—','Master Bebek membuka paruhnya dan para dewa keberuntungan terdiam untuk mendengarkan—'],
+  avl:{r:'Nada merah',g:'Nada hijau',b:'Nada biru',bright:'Kecerahan',warm:'Kehangatan'},
+  av:{vibrant:'✦ Merona cerah — vitalitas meluap',warm:'✦ Hangat keemasan — energi kekayaan mengalir',neutral:'✦ Seimbang dan stabil — aura harmonis',pale:'✦ Nada lebih terang — energi perlu diisi',dull:'✦ Nada lebih redup — periode pemulihan'},
+  overall:{
+    vibrant:['Kulit merona terdeteksi! Dahi cerah, mata jernih, bibir segar — semua empat tanda keberuntungan diaktifkan serentak. Master Bebek belum pernah melihat medan energi sebesar ini!','Aura luar biasa! Keberuntungan besar tidak hanya mendekat, sudah tiba dan mengetuk keras. Segera buka pintunya!','Wajah Anda memancarkan vitalitas puncak. Keberuntungan sedang antri untuk melayani Anda. Master berkata: ketika angin menguntungkan, sesuaikan layar dan pergi!'],
+    warm:['Warna kulit hangat keemasan terdeteksi, warna koin dan peluang yang tepat! Energi kekayaan berputar di sekeliling Anda. Bahkan Master Bebek ingin meminjam uang dari Anda!','Aura Anda bersinar amber hangat, menandakan kemakmuran yang akan datang. Uang yang diperoleh maupun uang keberuntungan sama-sama melambai dari balik tikungan!','Energi wajah emas terdeteksi, ini adalah warna keberuntungan. Beberapa hari ke depan menyimpan kejutan finansial yang menyenangkan!'],
+    neutral:['Kulit seimbang dan stabil, tanda seseorang yang mengalir dalam seperti sungai. Keberuntungan sedang membangun di bawah permukaan, mempersiapkan kedatangan yang agung!','Aura terpusat dan harmonis terdeteksi. Seperti bebek di atas air, tenang di permukaan, mendayung kuat di bawah. Momen Anda untuk bersinar sedang dipersiapkan!','Energi stabil, fondasi kuat. Tidak setiap bab itu menarik, tapi setiap bab itu penting. Anda sedang menulis fondasi kisah sukses Anda!'],
+    pale:['Kulit lebih cerah menunjukkan energi dalam mode pemulihan. Master Bebek berkata: ponsel dengan baterai sepuluh persen masih bekerja, dan sekali terisi penuh, bekerja lebih baik dari sebelumnya!','Vitalitas sedang berlibur sejenak. Master meresepkan satu malam tidur penuh, dua gelas air, nol doom scrolling. Versi Anda yang terisi penuh tidak bisa dihentikan!','Energi sementara rendah, tapi potensi tetap tinggi. Master Bebek melihat percikan di balik kelelahan. Isi ulang sekarang!'],
+    dull:['Medan energi sementara mendung, tapi Master Bebek telah mempelajari seribu tahun siklus keberuntungan. Setiap titik rendah adalah persiapan untuk titik tinggi. Terobosan Anda sedang loading!','Kelesuan sementara terdeteksi. Bahkan bebek-bebek terhebat pun berganti bulu sebelum menumbuhkan bulu-bulu paling indah mereka. Anda sedang dalam fase berganti bulu, kemuliaan mengikuti!','Energi saat ini mode pemeliharaan. Energi masa depan eksplosif. Master Bebek dengan ini mensertifikasi potensi Anda sebagai sangat besar. Bertahanlah!'],
+  },
+  wealth:{
+    vibrant:['Gerbang rezeki terbuka lebar! Beasiswa, kerja sambilan, hadiah kompetisi, semua saluran menguntungkan. Master berkata uangnya sudah siap, tinggal pergi mengambilnya!','Energi keuangan meluap! Pendapatan tak terduga sangat mungkin terjadi. Master menyarankan mulai kebiasaan menabung sekarang selagi energinya kuat!','Rezeki sedang hujan koin di jalur Anda! Master menyarankan tetapkan tujuan tabungan kecil hari ini. Diri masa depan Anda akan berterima kasih mendalam!'],
+    warm:['Energi uang keberuntungan terdeteksi! Peluang pendapatan sampingan sedang berlipat ganda. Keterampilan desain, les privat, fotografi, ubah bakat Anda menjadi pendapatan!','Peluang finansial sedang mengetuk pintu. Master berkata orang yang proaktif mendapat keberuntungan. Daftar beasiswa itu. Ambil pekerjaan sambilan itu!','Kekayaan energi naik, manfaatkan! Tips Master Bebek: pelajari satu keterampilan baru yang dapat menghasilkan uang bulan ini.'],
+    neutral:['Keuangan stabil dan dapat diandalkan. Berkelanjutan menang dalam jangka panjang. Lacak pengeluaran, bangun kebiasaan, lihat efek bunga majemuk bekerja!','Uang masuk uang keluar tapi keseimbangan dipertahankan. Tips Master: bedakan keinginan dan kebutuhan sebelum setiap pembelian. Tiga detik pemikiran dapat menghemat jutaan!','Energi keuangan tenang. Waktu sempurna untuk merencanakan daripada menghabiskan. Anggaran yang ditulis hari ini menjadi kekayaan yang terkumpul besok!'],
+    pale:['Energi keuangan lebih tenang sekarang. Master meresepkan mode pertahanan. Lindungi yang Anda miliki, lewati pembelian impulsif. Setiap rupiah yang ditabung adalah sekutu masa depan!','Kekayaan perlu dibangun kembali. Tips Master Bebek: periksa daftar beasiswa di sekolah, Anda mungkin memenuhi syarat untuk pendanaan yang belum Anda ketahui!','Energi uang rendah tapi bisa pulih. Master berkata investasi terbaik di tahap kehidupan ini adalah pengetahuan dan keterampilan.'],
+    dull:['Pasang surut keuangan rendah. Bahkan laut pun perlu surut sebelum menciptakan gelombang besar. Ini adalah energi kekayaan Anda yang mengumpulkan kekuatan!','Tantangan keuangan sementara. Pengingat Master Bebek: kebiasaan yang Anda bangun di masa sulit adalah kebiasaan yang membuat Anda kaya nantinya!','Kekayaan sementara tertahan. Master melihat energi berkembang lambat dalam pembacaan Anda. Kisah sukses finansial terbesar sering dimulai dengan tantangan terbesar!'],
+  },
+  study:{
+    vibrant:['Energi akademik maksimum! Dahi cerah sama dengan pemikiran jernih, mata terang sama dengan ingatan tajam. Sekarang Anda menyerap informasi seperti spons. Buka buku itu!','Vitalitas belajar diaktifkan sepenuhnya! Konsentrasi tinggi, kreativitas mengalir bebas. Ini adalah saat untuk mengatasi bab-bab tersulit dan mengesankan profesor!','Benefaktor akademik ada di dekat! Profesor yang ramah, senior yang menginspirasi, semua lebih mudah diakses sekarang. Tanyakan pertanyaan, cari bimbingan!'],
+    warm:['Energi belajar naik! Terutama kuat untuk pekerjaan kreatif dan analitis. Tugas yang Anda hindari? Sekarang adalah waktu yang tepat!','Momentum belajar membangun dengan baik. Belajar kelompok sangat menguntungkan sekarang. Temukan teman belajar, bagi beban, lipat gandakan hasil!','Energi akademik kreatif melonjak. Sempurna untuk proyek dan presentasi. Ide-ide Anda akan bersinar. Keluarkan dari kepala dan letakkan di halaman!'],
+    neutral:['Vitalitas akademik stabil dan dapat diandalkan. Lima belas menit membaca ekstra sehari terdengar kecil, tapi dalam satu semester terakumulasi menjadi jam-jam keunggulan!','Energi belajar seimbang. Waktu sempurna untuk meninjau dan mengkonsolidasikan. Pastikan fondasi Anda kuat, memahami mengalahkan menghafal setiap saat!','Energi belajar stabil. Tips Master Bebek: coba jelaskan apa yang Anda pelajari kepada orang lain. Jika Anda bisa mengajar, Anda benar-benar memahami!'],
+    pale:['Energi belajar butuh reboot. Master meresepkan: ubah lingkungan belajar, coba metode baru, istirahat yang benar. Otak Anda tidak rusak, hanya bosan!','Vitalitas belajar sementara rendah. Satu malam tidur yang baik memulihkan kapabilitas akademik lebih dari lima cangkir kopi. Prioritaskan istirahat!','Energi belajar perlu penyegaran. Tips Master: kunjungi profesor saat jam kantor. Satu percakapan bisa membuka pemahaman yang berjam-jam belajar mandiri tidak bisa!'],
+    dull:['Energi belajar dalam fase rebuilding. Master Bebek mengingatkan: setiap ahli dulunya adalah pemula yang bingung. Kebingungan Anda hari ini adalah pemahaman esok hari!','Vitalitas belajar sementara redup. Master berkata: temukan satu mata pelajaran yang benar-benar Anda sukai dan biarkan antusiasme itu menyebar. Semangat adalah bahan bakar belajar terkuat!','Pasang surut belajar rendah. Resep Master: tuliskan tujuan akademik Anda. Siswa yang menuliskan tujuan mencapainya dengan tingkat yang jauh lebih tinggi!'],
+  },
+  career:{
+    vibrant:['Energi karier membara! Waktu sempurna untuk membangun portofolio, menghadiri acara industri, terhubung dengan para profesional. Setiap tindakan Anda sekarang berdampak ganda!','Benefaktor profesional di mana-mana! Profesor, senior industri, alumni, semua lebih mudah diakses sekarang. Hubungi, ajukan pertanyaan, buat koneksi!','Pengakuan bakat akan datang! Ikuti kompetisi, kirimkan proyek, bagikan pekerjaan Anda. Dunia sedang dalam suasana menerima apa yang Anda ciptakan!'],
+    warm:['Energi karier naik dengan momentum kreatif! Ide yang Anda simpan? Sekarang saatnya kembangkan. Ide yang tidak ditindaklanjuti akan kadaluarsa. Bertindaklah sekarang!','Peluang profesional berlipat ganda. Ekspansi keterampilan sangat menguntungkan. Pilih satu alat, bahasa, atau teknik baru untuk dipelajari bulan ini!','Energi karier hangat dan membangun. Mulai portofolio Anda sekarang, meskipun kecil. Setiap portofolio hebat dimulai dengan satu karya tunggal!'],
+    neutral:['Vitalitas karier stabil. Sekolah adalah saat terakhir Anda bisa gagal dengan murah dan belajar dengan mahal. Bereksperimen, buat kesalahan, berkembang!','Energi profesional seimbang. Terbaik untuk membangun keterampilan secara stabil. Hadiri satu workshop, bergabung satu komunitas profesional tuần ini!','Fondasi karier membangun. Jaringan profesional yang Anda bangun sekarang akan bernilai lebih dari IPK Anda dalam sepuluh tahun!'],
+    pale:['Energi karier low-key tapi bisa diisi ulang. Ini adalah waktu yang tepat untuk memperjelas arah Anda. Lakukan penilaian karier, bicara dengan konselor karier!','Energi profesional perlu dinyalakan. Tips Master: hadiri ceramah atau acara industri. Terpapar dengan apa yang mungkin adalah langkah pertama untuk mencapainya!','Vitalitas karier tạm yên. Gunakan waktu ini untuk mengamati, meneliti, dan merencanakan. Profesional terbaik memahami industri mereka sebelum memasuki!'],
+    dull:['Energi karier dalam mode reset. Semua karier hebat memiliki jalan memutar. Ketidakpastian Anda saat ini bukan jalan buntu, melainkan persimpangan. Pilih arah dan mulai berjalan!','Kebingungan profesional bersifat sementara, tapi kebiasaan yang Anda bangun sekarang bersifat permanen. Etos kerja, keandalan, dan rasa ingin tahu tidak pernah ketinggalan zaman!','Pasang surut karier rendah. Master melihat potensi besar yang belum terwujud. Kesenjangan antara di mana Anda berada dan di mana Anda bisa berada diisi dengan satu hal yaitu upaya harian yang konsisten!'],
+  },
+  love:{
+    vibrant:['Energi cinta maksimum! Romansa sedang mekar penuh. Jomblo siapkan diri untuk koneksi tak terduga. Master berkata: hadir, tulus, dan jangan overthinking!','Pesona magnetis diaktifkan sepenuhnya! Orang-orang secara alami tertarik oleh energi Anda. Jadilah terbuka, hangat, dan diri sendiri!','Keberuntungan hubungan meluap! Ini adalah saat untuk memperdalam ikatan yang ada dan menyambut koneksi bermakna yang baru!'],
+    warm:['Energi romantis yang manis terdeteksi! Kehangatan dalam aura Anda sangat menarik. Ada seseorang dalam pikiran? Ini adalah jendela Anda. Ungkapkan perasaan dengan tulus!','Koneksi manusia hangat dan mengundang. Persahabatan bisa menjadi lebih dalam dan romansa yang potensial bisa terjadi. Hubungan terbaik dimulai dengan persahabatan sejati!','Energi cinta hangat dan stabil. Waktu sempurna untuk percakapan bermakna, aktivitas bersama, dan membangun kenangan yang bertahan lama!'],
+    neutral:['Keberuntungan cinta mengalir dengan lembut dan berkelanjutan. Kisah cinta paling dalam bukan yang paling dramatis melainkan di mana dua orang memilih satu sama lain secara konsisten setiap hari!','Energi hubungan seimbang. Waktu terbaik untuk memelihara koneksi yang ada dan menjadi kehadiran berkualitas dalam kehidupan orang yang Anda pedulikan!','Kehidupan cinta stabil dan tulus. Pengingat Master: kualitas paling menarik di usia Anda bukan penampilan melainkan nilai yang jelas, minat yang tulus, dan ambisi!'],
+    pale:['Energi cinta low-key. Resep Master Bebek: investasikan dalam diri sendiri sekarang. Versi Anda yang paling menarik adalah yang benar-benar bersemangat tentang kehidupan!','Energi romantis lebih tenang sekarang. Ini adalah jendela kejernihan. Cari tahu apa yang sebenarnya Anda inginkan dalam hubungan sebelum hubungan berikutnya dimulai!','Keberuntungan cinta perlu disegarkan. Fokus pada apa yang bisa Anda berikan, bukan terima. Orang yang paling dicintai adalah mereka yang mencintai dengan murah hati!'],
+    dull:['Energi cinta sementara rendah. Pasang surut romantis yang rendah adalah hadiah terselubung. Ini memberi waktu untuk menjadi orang yang akan menarik pasangan ideal Anda!','Keberuntungan hubungan perlu dibangun kembali. Cintai diri sendiri terlebih dahulu sebagai praktik yang tulus. Makan dengan baik, istirahat dengan baik, kejar hal yang membuat Anda bersemangat!','Pasang surut cinta rendah. Tidak ada kisah cinta yang berharga yang terburu-buru. Bab ideal Anda sedang ditulis. Teruslah hidup sepenuhnya dan orang yang tepat akan datang tepat waktu!'],
+  },
+  advice:{
+    vibrant:['Naiki gelombang ini! Keberuntungan besar bukan saatnya beristirahat melainkan saatnya menanam benih dengan kecepatan maksimum. Lakukan hal yang Anda tunda. Hari ini!','Pakai emas atau oranye minggu ini untuk memperkuat energi. Dan tersenyum lebih banyak karena senyum tulus adalah penguat aura terkuat yang Master Bebek amati dalam seribu tahun!'],
+    warm:['Mulai kebiasaan menabung hari ini saat energi keuangan mendukung. Bahkan jumlah kecil pun penting. Formula Master Bebek: tabung dulu, belanjakan sisanya!','Tetap terhidrasi dan tidur sebelum tengah malam. Aura yang baik membutuhkan biologi yang baik.'],
+    neutral:['Konsistensi adalah kekuatan super Anda sekarang. Master berkata: hadir setiap hari, kerjakan, percayai prosesnya. Membosankan? Mungkin. Efektif? Tentu saja!','Temukan satu hal yang benar-benar membuat Anda bersemangat dan lakukan minggu ini. Kebahagiaan adalah pengisi daya aura.'],
+    pale:['Tidur adalah prioritas utama Anda. Setiap jam sebelum tengah malam berlipat ganda. Tidak ada ponsel setelah jam sebelas malam selama satu minggu!','Makan sayuran. Minum segelas air ekstra. Berjalan di luar selama sepuluh menit. Kebiasaan konsisten kecil adalah fondasi aura dan nasib yang baik!'],
+    dull:['Keluarlah dan sentuh alam. Bahkan lima menit udara luar ruangan mengatur ulang medan energi lebih efektif dari suplemen apapun. Master menguji ini secara ekstensif.','Bersihkan satu area ruang fisik Anda. Ketertiban eksternal menciptakan kejelasan internal. Kejelasan internal menciptakan nasib yang lebih baik!'],
+  },
+  bless:{
+    vibrant:'Master Bebek mendeklarasikan: Keberuntungan membanjir tak terbendung, kekayaan, kebijaksanaan, dan cinta semua mengantri untuk melayani Anda. Pembacaan ini bersertifikasi menang!',
+    warm:'Master Bebek memproklamirkan: Cahaya emas menerangi setiap jalan yang Anda tempuh. Kemakmuran mengikuti jejak kaki Anda seperti bebek yang setia. Kwek!',
+    neutral:'Master Bebek memberkati: Jalan yang stabil menuju ke tujuan terhebat. Fondasi kokoh Anda akan mendukung masa depan yang luar biasa. Teruslah berjalan!',
+    pale:'Master Bebek menyemangati: Isi ulang sekarang, meledak kemudian. Kisah kembali Anda sudah ditulis oleh alam semesta. Percayai itu!',
+    dull:'Master Bebek mendeklarasikan: Lembah terdalam melahirkan gunung tertinggi. Momen puncak Anda tidak hanya akan datang, sedang dibuat khusus untuk Anda sekarang!',
+  },
+  oet:['Master Bebek melihat bakat desain inovatif dalam nasib Anda! Jurusan Desain Industri AEUST adalah panggilan akademis Anda. Daftar dan penuhi takdir Anda!','Aura Anda berteriak inovator dan pencipta! Asia Eastern University of Science and Technology menawarkan program lintas disiplin yang akan melipatgandakan keberuntungan Anda!','Energi kreatif dan interpersonal terdeteksi! Kampus AEUST memiliki teman sekelas yang cemerlang, klub aktif, dan kehidupan kampus yang energik!','ROI pendidikan selalu investasi tertinggi! Kemitraan industri dan mentorship AEUST menghasilkan lulusan dengan tingkat kerja yang luar biasa!','Energi benefaktor tinggi! Profesor AEUST membawa pengalaman industri nyata ke dalam kelas. Mereka adalah mentor yang takdir Anda siapkan untuk Anda!'],
+},
+
+ms:{
+  vl:'ms-MY',
+  snap:'Ambil Gambar',upload:'Muat Naik Gambar',retake:'Ulang Gambar',or:'atau',analyze:'🦆 Tuan Itik Ramal!',
+  ld1:'Tuan Itik sedang menganalisis aura anda…',ld2:'Mengimbas warna · Mengira nasib',
+  scl:'Skor Aura',al:'Analisis Aura',
+  lw:'💰 Kewangan',ls:'📚 Pelajaran',lc:'🌟 Kerjaya',ll:'💕 Percintaan',
+  la:'✨ Tips Tuah',lb:'🔮 Berkat',
+  son:'🔊 Bacakan',sof:'⏹ Berhenti',sst:'Tuan Itik sedang mengumumkan nasib anda…',
+  ot:'🎓 Dekri Khas Tuan Itik · AEUST',
+  hint:'✨ Analisis luar talian · Tiada internet diperlukan · Keputusan segera',
+  emailTitle:'📧 Hantar Keputusan Ramalan ke Email Anda',
+  emailPlaceholder:'Alamat email anda',
+  emailBtn:'✉ Hantar',
+  emailNote:'Dihantar melalui aplikasi email · Percuma · Privasi',
+  emailSent:'✓ Aplikasi email dibuka — sila hantar!',
+  emailSubject:'🦆 Keputusan Ramalan Tuan Itik',
+  emailGreeting:'Helo! Ini adalah keputusan ramalan anda:',
+  emailAeustIntro:'Universiti Sains dan Teknologi Asia Timur (AEUST)',
+  emailAdmission:'🎓 Maklumat Kemasukan AEUST',
+  open:['Tuan Itik memetik jari sampai hampir terlecet, tetapi nasib telah terdedah—','Satu kuak sakral dan alam semesta menjawab sepenuhnya—','Tiga saat meditasi itik, kebijaksanaan tak terhad telah dimuat turun—','Tiada AI, tiada bola kristal, hanya penglihatan itik tulen seribu tahun—','Tuan Itik membuka paruhnya dan dewa-dewa tuah terdiam untuk mendengar—'],
+  avl:{r:'Nada merah',g:'Nada hijau',b:'Nada biru',bright:'Kecerahan',warm:'Kehangatan'},
+  av:{vibrant:'✦ Merah segar — tenaga vital melimpah',warm:'✦ Hangat keemasan — tenaga kekayaan mengalir',neutral:'✦ Seimbang dan stabil — aura harmoni',pale:'✦ Nada lebih cerah — tenaga perlu diisi semula',dull:'✦ Nada lebih redup — tempoh pemulihan'},
+  overall:{
+    vibrant:['Kulit segar terdeteksi! Dahi cerah, mata jernih, bibir segar — semua empat tanda tuah diaktifkan serentak. Tuan Itik tidak pernah melihat medan tenaga sebesar ini!','Aura luar biasa! Tuah besar bukan sahaja menghampiri, ia sudah tiba dan mengetuk dengan kuat. Segera buka pintu!','Wajah anda memancarkan vitaliti puncak. Tuah sedang beratur untuk melayani anda. Tuan Itik berkata: apabila angin menguntungkan, laraskan layar dan pergi!'],
+    warm:['Warna kulit hangat keemasan terdeteksi, warna syiling dan peluang yang tepat! Tenaga kekayaan berputar di sekeliling anda. Tuan Itik pun ingin meminjam wang daripada anda!','Aura anda bersinar amber hangat, menandakan kemakmuran yang akan datang. Wang yang diperoleh dan wang tuah sama-sama melambai dari sebalik selekoh!','Tenaga wajah emas terdeteksi, ini adalah warna tuah. Beberapa hari ke depan menyimpan kejutan kewangan yang menyenangkan!'],
+    neutral:['Kulit seimbang dan stabil, tanda seseorang yang mengalir dalam seperti sungai. Tuah sedang membina di bawah permukaan, menyediakan kedatangan yang agung!','Aura terpusat dan harmoni terdeteksi. Seperti itik di atas air, tenang di permukaan, mendayung kuat di bawah. Saat anda untuk bersinar sedang disediakan!','Tenaga stabil, asas kukuh. Tidak setiap bab itu menarik, tetapi setiap bab itu penting. Anda sedang menulis asas kisah kejayaan anda!'],
+    pale:['Kulit lebih cerah menunjukkan tenaga dalam mod pemulihan. Tuan Itik berkata: telefon dengan bateri sepuluh peratus masih berfungsi, dan setelah dicas penuh, berfungsi lebih baik dari sebelumnya!','Vitaliti sedang bercuti sebentar. Tuan Itik meresepkan satu malam tidur penuh, dua gelas air, sifar menatal media sosial. Versi anda yang terisi penuh tidak boleh dihentikan!','Tenaga sementara rendah tetapi potensi kekal tinggi. Tuan Itik melihat percikan di sebalik keletihan. Cas semula sekarang!'],
+    dull:['Medan tenaga sementara mendung tetapi Tuan Itik telah mengkaji seribu tahun kitaran tuah. Setiap titik rendah adalah persediaan untuk titik tinggi. Terobosan anda sedang dimuatkan!','Kelesuan sementara terdeteksi. Malah itik-itik terhebat pun menukar bulu sebelum menumbuhkan bulu-bulu paling indah mereka. Anda sedang dalam fasa menukar bulu!','Tenaga kini mod penyelenggaraan. Tenaga masa depan eksplosif. Tuan Itik dengan ini mengesahkan potensi anda adalah sangat besar. Bertahanlah!'],
+  },
+  wealth:{
+    vibrant:['Pintu rezeki terbuka lebar! Biasiswa, kerja sambilan, hadiah pertandingan, semua saluran menguntungkan. Tuan Itik berkata: wangnya sudah sedia, pergi ambilnya!','Tenaga kewangan melimpah! Pendapatan tidak dijangka sangat mungkin berlaku. Mulakan tabiat menabung sekarang selagi tenaganya kuat!','Rezeki sedang hujan syiling di laluan anda! Tuan Itik mencadangkan tetapkan matlamat simpanan kecil hari ini.'],
+    warm:['Tenaga wang tuah terdeteksi! Peluang pendapatan sampingan sedang berlipat ganda. Kemahiran reka bentuk, tuisyen, fotografi, tukar bakat anda menjadi pendapatan!','Peluang kewangan sedang mengetuk pintu. Tuan Itik berkata: orang yang proaktif mendapat tuah. Mohon biasiswa itu. Ambil kerja sambilan itu!','Kekayaan tenaga naik! Tips Tuan Itik: pelajari satu kemahiran baru yang boleh menjana wang bulan ini.'],
+    neutral:['Kewangan stabil dan boleh dipercayai. Mampan menang dalam jangka panjang. Jejaki perbelanjaan, bina tabiat!','Wang masuk wang keluar tetapi keseimbangan dikekalkan. Tips Tuan Itik: bezakan kehendak dan keperluan sebelum setiap pembelian.','Tenaga kewangan tenang. Masa yang sempurna untuk merancang daripada berbelanja.'],
+    pale:['Tenaga kewangan lebih tenang sekarang. Tuan Itik meresepkan mod pertahanan. Lindungi apa yang anda ada, langkau pembelian impuls!','Kekayaan perlu dibina semula. Tips Tuan Itik: semak senarai biasiswa di sekolah, anda mungkin layak untuk pembiayaan yang belum anda ketahui!','Tenaga wang rendah tetapi boleh pulih. Pelaburan terbaik pada peringkat kehidupan ini adalah pengetahuan dan kemahiran.'],
+    dull:['Pasang surut kewangan rendah. Malah laut pun perlu surut sebelum mencipta gelombang besar. Ini adalah tenaga kekayaan anda yang mengumpul kekuatan!','Cabaran kewangan sementara. Pengingat Tuan Itik: tabiat yang anda bina pada masa susah adalah tabiat yang menjadikan anda kaya kemudian!','Kekayaan sementara tertahan. Tuan Itik melihat tenaga berkembang lambat dalam bacaan anda. Kisah kejayaan kewangan terbesar sering dimulakan dengan cabaran terbesar!'],
+  },
+  study:{
+    vibrant:['Tenaga akademik maksimum! Dahi cerah bermakna pemikiran jernih, mata terang bermakna ingatan tajam. Sekarang anda menyerap maklumat seperti span. Buka buku itu!','Vitaliti pembelajaran diaktifkan sepenuhnya! Tumpuan tinggi, kreativiti mengalir bebas. Ini adalah masa untuk menangani bab-bab tersukar dan mengkagumkan pensyarah!','Benefaktor akademik berdekatan! Pensyarah mesra, senior yang memberi inspirasi, semua lebih mudah diakses sekarang. Tanya soalan, cari panduan!'],
+    warm:['Tenaga belajar naik! Terutama kuat untuk kerja kreatif dan analitik. Tugasan yang anda elakkan? Sekarang adalah masa yang tepat!','Momentum pembelajaran membina dengan baik. Belajar kumpulan sangat menguntungkan sekarang. Cari rakan belajar, kongsi beban, gandakan hasil!','Tenaga akademik kreatif melonjak. Sempurna untuk projek dan pembentangan. Idea-idea anda akan bersinar!'],
+    neutral:['Vitaliti akademik stabil dan boleh dipercayai. Lima belas minit membaca tambahan sehari terdengar kecil, tetapi sepanjang semester terkumpul menjadi jam-jam kelebihan!','Tenaga belajar seimbang. Masa yang sempurna untuk mengulang kaji dan mengukuhkan. Pastikan asas anda kukuh, memahami mengalahkan menghafal!','Tenaga belajar stabil. Tips Tuan Itik: cuba terangkan apa yang anda pelajari kepada orang lain. Jika anda boleh mengajar, anda benar-benar faham!'],
+    pale:['Tenaga belajar memerlukan reboot. Tuan Itik meresepkan: ubah persekitaran belajar, cuba kaedah baru, rehat yang betul. Otak anda tidak rosak, hanya bosan!','Vitaliti pembelajaran sementara rendah. Satu malam tidur yang baik memulihkan keupayaan akademik lebih daripada lima cawan kopi. Utamakan rehat!','Tenaga belajar perlu penyegaran. Tips: lawati pensyarah semasa waktu pejabat. Satu perbualan boleh membuka pemahaman yang berjam-jam belajar sendiri tidak boleh!'],
+    dull:['Tenaga belajar dalam fasa membina semula. Tuan Itik mengingatkan: setiap pakar dulunya adalah pemula yang keliru. Kekeliruan anda hari ini adalah pemahaman esok hari!','Vitaliti belajar sementara malap. Tuan Itik berkata: cari satu mata pelajaran yang anda benar-benar minati dan biarkan semangat itu merebak. Semangat adalah bahan api belajar terkuat!','Pasang surut belajar rendah. Resipi Tuan Itik: tuliskan matlamat akademik anda. Pelajar yang menuliskan matlamat mencapainya dengan kadar yang jauh lebih tinggi!'],
+  },
+  career:{
+    vibrant:['Tenaga kerjaya membara! Masa yang sempurna untuk membina portfolio, menghadiri acara industri, berhubung dengan profesional. Setiap tindakan anda sekarang memberi impak berganda!','Benefaktor profesional di mana-mana! Pensyarah, senior industri, alumni, semua lebih mudah diakses sekarang. Hubungi, tanya soalan, bina hubungan!','Pengiktirafan bakat akan datang! Sertai pertandingan, hantar projek, kongsi kerja anda. Dunia sedang dalam suasana menerima apa yang anda cipta!'],
+    warm:['Tenaga kerjaya naik dengan momentum kreatif! Idea yang anda simpan? Sekarang masanya kembangkan. Idea yang tidak diambil tindakan akan tamat tempoh!','Peluang profesional berlipat ganda. Pengembangan kemahiran sangat menguntungkan. Pilih satu alat, bahasa, atau teknik baru untuk dipelajari bulan ini!','Tenaga kerjaya hangat dan membina. Mulakan portfolio anda sekarang, walaupun kecil. Setiap portfolio hebat bermula dengan satu karya tunggal!'],
+    neutral:['Vitaliti kerjaya stabil. Sekolah adalah kali terakhir anda boleh gagal dengan murah dan belajar dengan mahal. Cuba, buat kesilapan, berkembang!','Tenaga profesional seimbang. Terbaik untuk membina kemahiran secara stabil. Hadiri satu bengkel, sertai satu komuniti profesional minggu ini!','Asas kerjaya membina. Rangkaian profesional yang anda bina sekarang akan bernilai lebih daripada CGPA anda dalam sepuluh tahun!'],
+    pale:['Tenaga kerjaya low-key tetapi boleh diisi semula. Ini adalah masa yang tepat untuk menjelaskan arah anda. Lakukan penilaian kerjaya, bercakap dengan kaunselor kerjaya!','Tenaga profesional perlu dinyalakan. Tips: hadiri ceramah atau acara industri. Terdedah dengan apa yang mungkin adalah langkah pertama untuk mencapainya!','Vitaliti kerjaya sementara tenang. Gunakan masa ini untuk memerhati, menyelidik, dan merancang.'],
+    dull:['Tenaga kerjaya dalam mod tetapan semula. Semua kerjaya hebat mempunyai laluan berliku. Ketidakpastian anda kini bukan jalan buntu, ia adalah simpang empat!','Kekeliruan profesional bersifat sementara tetapi tabiat yang anda bina sekarang bersifat kekal. Etika kerja, kebolehpercayaan, dan rasa ingin tahu tidak pernah lapuk!','Pasang surut kerjaya rendah. Tuan Itik melihat potensi besar yang belum direalisasikan. Jurang antara di mana anda berada dan di mana anda boleh berada diisi dengan usaha harian yang konsisten!'],
+  },
+  love:{
+    vibrant:['Tenaga cinta maksimum! Percintaan sedang mekar penuh. Bujang bersiap untuk hubungan tidak dijangka. Tuan Itik berkata: hadir, ikhlas, jangan terlalu berfikir!','Pesona magnetik diaktifkan sepenuhnya! Orang secara semula jadi tertarik oleh tenaga anda. Jadilah terbuka, mesra, dan diri sendiri!','Tuah perhubungan melimpah! Ini adalah masa untuk memperdalam ikatan yang ada dan mengalu-alukan hubungan bermakna yang baru!'],
+    warm:['Tenaga romantik yang manis terdeteksi! Kehangatan dalam aura anda sangat menarik. Ada seseorang dalam fikiran? Ini adalah peluang anda. Ungkapkan perasaan dengan ikhlas!','Hubungan manusia hangat dan mengundang. Persahabatan boleh menjadi lebih dalam dan percintaan yang berpotensi boleh berlaku. Hubungan terbaik bermula dengan persahabatan sejati!','Tenaga cinta hangat dan stabil. Masa yang sempurna untuk perbualan bermakna dan membina kenangan yang kekal lama!'],
+    neutral:['Tuah cinta mengalir dengan lembut dan mampan. Kisah cinta paling dalam bukan yang paling dramatik tetapi di mana dua orang memilih antara satu sama lain secara konsisten setiap hari!','Tenaga perhubungan seimbang. Masa terbaik untuk memupuk hubungan yang ada dan menjadi kehadiran berkualiti dalam kehidupan orang yang anda sayangi!','Kehidupan cinta stabil dan ikhlas. Peringatan Tuan Itik: kualiti paling menarik pada usia anda bukan penampilan tetapi nilai yang jelas, minat yang tulen, dan cita-cita!'],
+    pale:['Tenaga cinta low-key. Resipi Tuan Itik: laburan dalam diri anda sendiri sekarang. Versi anda yang paling menarik adalah yang benar-benar bersemangat tentang kehidupan!','Tenaga romantik lebih tenang sekarang. Ini adalah tetingkap kejelasan. Cari tahu apa yang anda inginkan dalam perhubungan sebelum perhubungan seterusnya bermula!','Tuah cinta perlu disegarkan. Fokus pada apa yang boleh anda beri, bukan terima. Orang yang paling dicintai adalah mereka yang mencintai dengan murah hati!'],
+    dull:['Tenaga cinta sementara rendah. Pasang surut romantik yang rendah adalah hadiah terselindung. Ini memberi masa untuk menjadi orang yang akan menarik pasangan ideal anda!','Tuah perhubungan perlu dibina semula. Cintai diri sendiri terlebih dahulu sebagai amalan yang tulen. Makan dengan baik, rehat dengan baik, kejar perkara yang mengujakan anda!','Pasang surut cinta rendah. Tiada kisah cinta yang bernilai yang tergesa-gesa. Bab ideal anda sedang ditulis. Teruslah hidup sepenuhnya dan orang yang tepat akan muncul tepat pada masanya!'],
+  },
+  advice:{
+    vibrant:['Naiki gelombang ini! Tuah yang baik bukan masa untuk berehat tetapi masa untuk menanam benih dengan kelajuan maksimum. Lakukan perkara yang anda tangguhkan. Hari ini!','Pakai emas atau jingga minggu ini untuk memperkuat tenaga. Dan senyum lebih banyak kerana senyum ikhlas adalah penguat aura terkuat yang Tuan Itik amati dalam seribu tahun!'],
+    warm:['Mulakan tabiat menabung hari ini apabila tenaga kewangan menyokong. Malah jumlah kecil pun penting. Formula Tuan Itik: tabung dahulu, belanjakan bakinya!','Kekal terhidrat dan tidur sebelum tengah malam. Aura yang baik memerlukan biologi yang baik.'],
+    neutral:['Konsistensi adalah kuasa super anda sekarang. Tuan Itik berkata: hadir setiap hari, buat kerja, percayai prosesnya.','Cari satu perkara yang benar-benar mengujakan anda dan lakukan minggu ini. Kegembiraan adalah pengecas aura.'],
+    pale:['Tidur adalah keutamaan utama anda. Setiap jam sebelum tengah malam berlipat ganda. Tiada telefon selepas jam sebelas malam selama seminggu!','Makan sayuran. Minum segelas air tambahan. Berjalan di luar selama sepuluh minit. Tabiat konsisten kecil adalah asas aura dan nasib yang baik!'],
+    dull:['Keluar dan sentuh alam semula jadi. Malah lima minit udara luar bilik menetapkan semula medan tenaga lebih berkesan daripada sebarang suplemen. Tuan Itik menguji ini secara meluas.','Kemas satu kawasan ruang fizikal anda. Ketertiban luaran mewujudkan kejelasan dalaman. Kejelasan dalaman mewujudkan nasib yang lebih baik!'],
+  },
+  bless:{
+    vibrant:'Tuan Itik mengisytiharkan: Tuah membanjir tidak terbendung, kekayaan, kebijaksanaan, dan cinta semua beratur untuk melayani anda. Bacaan ini bersijil menang!',
+    warm:'Tuan Itik mengumumkan: Cahaya emas menerangi setiap jalan yang anda tempuhi. Kemakmuran mengikuti jejak kaki anda seperti itik yang setia. Kuak!',
+    neutral:'Tuan Itik memberkati: Jalan yang stabil menuju ke destinasi terhebat. Asas kukuh anda akan menyokong masa depan yang luar biasa. Teruslah berjalan!',
+    pale:'Tuan Itik menyemangati: Cas semula sekarang, meletup kemudian. Kisah kembali anda sudah ditulis oleh alam semesta. Percayainya!',
+    dull:'Tuan Itik mengisytiharkan: Lembah terdalam melahirkan gunung tertinggi. Saat puncak anda bukan sahaja akan datang, ia sedang dibuat khas untuk anda sekarang!',
+  },
+  oet:['Tuan Itik melihat bakat reka bentuk inovatif dalam nasib anda! Jabatan Reka Bentuk Industri AEUST adalah panggilan akademik anda. Daftar dan penuhi takdir anda!','Aura anda menjerit inovator dan pencipta! Asia Eastern University of Science and Technology menawarkan program pelbagai disiplin yang akan menggandakan tuah anda!','Tenaga kreatif dan interpersonal terdeteksi! Kampus AEUST mempunyai rakan sekelas cemerlang, kelab aktif, dan kehidupan kampus yang bertenaga!','ROI pendidikan sentiasa pelaburan tertinggi! Perkongsian industri dan mentorship AEUST menghasilkan graduan dengan kadar pekerjaan yang luar biasa!','Tenaga benefaktor tinggi! Pensyarah AEUST membawa pengalaman industri sebenar ke dalam bilik darjah. Mereka adalah mentor yang takdir anda sediakan untuk anda!'],
+}
+};
+
+// ══════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function pickIdx(arr,score){return arr[Math.min(arr.length-1,Math.max(0,Math.floor((score||5)/2.1)))];}
+
+// ══════════════════════════════════════
+// PARTICLES
+// ══════════════════════════════════════
+(function(){
+  var w=document.getElementById('ptc');
+  for(var i=0;i<18;i++){
+    var d=document.createElement('div');d.className='pt';
+    var s=Math.random()*2.5+1;
+    d.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;width:'+s+'px;height:'+s+'px;background:#f5c842;box-shadow:0 0 '+(s*4)+'px #f5c842;animation:floatY '+(Math.random()*3+3)+'s '+(Math.random()*4)+'s infinite ease-in-out';
+    w.appendChild(d);
+  }
+})();
+
+
+// ══════════════════════════════════════
+// THINKING ANIMATION
+// ══════════════════════════════════════
+var THINK_TMR = null;
+
+// 各語言的思考泡泡台詞
+var THINK_LINES = {
+  zh: [
+    '嗯…這個氣色…',
+    '本鴨掐指一算…',
+    '天機不可輕洩…',
+    '印堂有玄機…',
+    '五行開始顯現…',
+    '氣場能量分析中…',
+    '鴨嘴微微顫動…',
+    '宇宙正在回應…',
+  ],
+  en: [
+    'Hmm… interesting aura…',
+    'Calculating fortune…',
+    'Ancient wisdom processing…',
+    'Duck vision activating…',
+    'Energy patterns detected…',
+    'Cosmic alignment checking…',
+  ],
+  vi: [
+    'Hmm… khí sắc thú vị…',
+    'Thầy Vịt đang tính…',
+    'Thiên cơ đang hiện ra…',
+    'Năng lượng đang phân tích…',
+  ],
+  id: [
+    'Hmm… aura menarik…',
+    'Master Bebek menghitung…',
+    'Takdir sedang terungkap…',
+    'Energi sedang dianalisis…',
+  ],
+  ms: [
+    'Hmm… aura menarik…',
+    'Tuan Itik sedang mengira…',
+    'Takdir sedang terdedah…',
+    'Tenaga sedang dianalisis…',
+  ],
+};
+
+var SPARK_EMOJIS = ['✨','⭐','💫','🌟','✦','🔮','💡','⚡'];
+
+function spawnSpark() {
+  var layer = document.getElementById('sparks-layer');
+  if (!layer) return;
+  var s = document.createElement('span');
+  s.className = 'spark';
+  s.textContent = SPARK_EMOJIS[Math.floor(Math.random() * SPARK_EMOJIS.length)];
+  s.style.left = (8 + Math.random() * 82) + '%';
+  s.style.top  = (10 + Math.random() * 70) + '%';
+  s.style.animationDuration = (0.9 + Math.random() * 0.5) + 's';
+  s.style.opacity = '0';
+  layer.appendChild(s);
+  setTimeout(function(){ if(s.parentNode) s.parentNode.removeChild(s); }, 1400);
+}
+
+function startThinkVisual() {
+  var duck   = document.getElementById('think-duck');
+  var bubble = document.getElementById('think-bubble');
+  var status = document.getElementById('think-status');
+  var layer  = document.getElementById('sparks-layer');
+  var lines  = THINK_LINES[LANG] || THINK_LINES.zh;
+  var step   = 0;
+  var lineTimer, sparkTimer;
+
+  // 重置狀態（確保 DOM 已可見）
+  if (duck)   { duck.className = 'think-duck'; duck.textContent = '🦆'; void duck.offsetWidth; duck.className = 'think-duck thinking'; }
+  if (bubble) { bubble.style.visibility = 'visible'; }
+  if (status) { status.className = 'think-status'; }
+  if (layer)  { layer.innerHTML = ''; }
+
+  // 第一條台詞
+  function showLine(text) {
+    if (!bubble) return;
+    bubble.className = 'think-bubble';
+    bubble.textContent = text;
+    // 強制 reflow 再觸發動畫
+    void bubble.offsetWidth;
+    bubble.className = 'think-bubble show';
+  }
+  showLine(lines[0]);
+
+  // 狀態列
+  var statusTxt = {zh:'鴨董大師正在推算天機中…',en:'Master Yadong reading destiny…',vi:'Thầy Vịt đang xem tướng…',id:'Master Bebek sedang membaca…',ms:'Tuan Itik sedang membaca…'};
+  if (status) status.textContent = statusTxt[LANG] || statusTxt.zh;
+
+  // 650ms 換台詞
+  lineTimer = setInterval(function() {
+    step = (step + 1) % lines.length;
+    showLine(lines[step]);
+  }, 680);
+
+  // 300ms 噴火花
+  function doSpark() {
+    if (!layer) return;
+    var emojis = ['✨','⭐','💫','🌟','✦','💡','⚡','🔮'];
+    var s = document.createElement('span');
+    s.className = 'spark';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.cssText =
+      'left:' + (5 + Math.random() * 88) + '%;' +
+      'top:'  + (8 + Math.random() * 75) + '%;' +
+      'font-size:' + (0.9 + Math.random() * 1) + 'rem;' +
+      'animation-duration:' + (0.75 + Math.random() * 0.55) + 's;' +
+      'animation-delay:0s';
+    layer.appendChild(s);
+    setTimeout(function() { if (s.parentNode) s.parentNode.removeChild(s); }, 1350);
+  }
+  sparkTimer = setInterval(doSpark, 300);
+
+  THINK_TMR = { line: lineTimer, spark: sparkTimer };
+
+  // ── 3.1 秒後：靈光乍現 ──
+  setTimeout(function() {
+    clearInterval(lineTimer);
+    clearInterval(sparkTimer);
+
+    // 最後一波星星爆炸
+    for (var i = 0; i < 14; i++) {
+      (function(delay) {
+        setTimeout(doSpark, delay);
+      })(i * 55);
+    }
+
+    // 鴨董換成 💡
+    if (duck) {
+      duck.className = 'think-duck eureka';
+      duck.textContent = '💡';
+    }
+    if (bubble) {
+      bubble.style.visibility = 'hidden';
+      bubble.className = 'think-bubble';
+    }
+    // 隱藏點點
+    var dots = document.querySelector('.think-dots');
+    if (dots) dots.style.visibility = 'hidden';
+
+    // 揭曉文字
+    if (status) {
+      var revealTxt = {zh:'✦ 天機揭曉！✦',en:'✦ Destiny revealed! ✦',vi:'✦ Thiên cơ lộ! ✦',id:'✦ Takdir terungkap! ✦',ms:'✦ Takdir terdedah! ✦'};
+      status.className = '';
+      status.textContent = revealTxt[LANG] || revealTxt.zh;
+      void status.offsetWidth;
+      status.className = 'think-status reveal';
+    }
+  }, 2200);
+}
+
+function stopThinkingAnim() {
+  if (THINK_TMR) {
+    clearInterval(THINK_TMR.line);
+    clearInterval(THINK_TMR.spark);
+    THINK_TMR = null;
+  }
+  // 重置鴨董
+  var duck = document.getElementById('think-duck');
+  if (duck) { duck.textContent = '🦆'; duck.style.animation = ''; duck.style.fontSize = ''; }
+  var bubble = document.getElementById('think-bubble');
+  if (bubble) { bubble.style.opacity = '0'; }
+  var status = document.getElementById('think-status');
+  if (status) { status.textContent = ''; status.style.fontSize = ''; status.style.color = ''; status.style.fontWeight = ''; }
+  var layer = document.getElementById('sparks-layer');
+  if (layer) layer.innerHTML = '';
+}
+
+// ══════════════════════════════════════
+// LANG
+// ══════════════════════════════════════
+function applyLang(){
+  var t=D[LANG];
+  function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  var titles={zh:'鴨董大師氣色占卜',en:'Master Yadong Face Oracle',vi:'Thầy Vịt Xem Tướng',id:'Master Bebek Baca Wajah',ms:'Tuan Itik Baca Wajah'};
+  var subs={zh:'以千年鴨嘴慧眼，洞察您的命運氣場',en:'Ancient duck wisdom reveals your destiny',vi:'Trí tuệ vịt ngàn năm, soi rõ vận mệnh bạn',id:'Kearifan bebek kuno mengungkap takdir Anda',ms:'Kebijaksanaan itik purba mendedahkan takdir anda'};
+  set('h-title',titles[LANG]);set('h-sub',subs[LANG]);
+  set('b-snap','📸 '+t.snap);set('b-up','🖼️ '+t.upload);set('b-or',t.or);
+  set('b-take','⊙ '+t.snap);set('b-retake','↩ '+t.retake);set('b-again','↩ '+t.retake);
+  set('b-analyze',t.analyze);set('txt-load',t.ld1);set('txt-load2',t.ld2);
+  set('lbl-score',t.scl);set('lbl-aura',t.al);
+  set('l-wealth',t.lw);set('l-study',t.ls);set('l-career',t.lc);set('l-love',t.ll);
+  set('l-advice',t.la);set('l-bless',t.lb);set('oet-title',t.ot);set('p-hint',t.hint);
+  // 結果頁語言標籤即時更新（不重跑 renderResult，快速）
+  updateEmailLang();
+  updateLineOverlayLang();
+  if(RESULT){
+    var t2=D[LANG],a=RESULT.aura,sc=RESULT.score;
+    var sl=document.getElementById('lbl-score'); if(sl)sl.textContent=t2.scl;
+    var al=document.getElementById('lbl-aura');  if(al)al.textContent=t2.al;
+    var fw=document.getElementById('l-wealth');  if(fw)fw.textContent=t2.lw;
+    var fs=document.getElementById('l-study');   if(fs)fs.textContent=t2.ls;
+    var fc=document.getElementById('l-career');  if(fc)fc.textContent=t2.lc;
+    var fl=document.getElementById('l-love');    if(fl)fl.textContent=t2.ll;
+    var fa=document.getElementById('l-advice');  if(fa)fa.textContent=t2.la;
+    var fb=document.getElementById('l-bless');   if(fb)fb.textContent=t2.lb;
+    var fo=document.getElementById('oet-title'); if(fo)fo.textContent=t2.ot;
+    // 重新渲染運勢文字（語言切換必要）
+    var ph=document.getElementById('ph-result');
+    if(ph&&ph.classList.contains('on')){
+      document.getElementById('r-overall').textContent=pick(t2.open)+pick(t2.overall[a]);
+      document.getElementById('r-wealth').textContent=pick(t2.wealth[a]);
+      document.getElementById('r-study').textContent=pick(t2.study[a]);
+      document.getElementById('r-career').textContent=pick(t2.career[a]);
+      document.getElementById('r-love').textContent=pick(t2.love[a]);
+      document.getElementById('aura-verdict').textContent=t2.av[a];
+      document.getElementById('r-bless').textContent=t2.bless[a];
+      document.getElementById('oet-txt').textContent=pickIdx(t2.oet,sc);
+      var adv=document.getElementById('r-advice');adv.innerHTML='';
+      t2.advice[a].forEach(function(s){var d2=document.createElement('div');d2.className='advi';d2.innerHTML='<span class="addia">◆</span><span class="ftxt">'+s+'</span>';adv.appendChild(d2);});
+    }
+  }
+}
+
+function setLang(l){
+  LANG=l;
+  // 更新按鈕 .on 狀態（用 data-lang 比對，最可靠）
+  document.querySelectorAll('.ltab').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-lang')===l);
+  });
+  applyLang();
+}
+
+// ══════════════════════════════════════
+// PHASE
+// ══════════════════════════════════════
+function show(n){document.querySelectorAll('.phase').forEach(function(p){p.classList.remove('on');});document.getElementById('ph-'+n).classList.add('on');}
+function goIdle(){cancelCam();PHOTO=null;RESULT=null;show('idle');}
+
+// ══════════════════════════════════════
+// CAMERA
+// ══════════════════════════════════════
+async function startCam(){
+  // LINE 內建瀏覽器無法使用相機，直接引導
+  if(isLineWebView()){showLineGuide();return;}
+  try{
+    var s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}}});
+    STREAM=s;document.getElementById('video').srcObject=s;show('cam');
+  }catch(e){
+    if(isLineWebView()||e.name==='NotAllowedError'||e.name==='PermissionDeniedError'){
+      showLineGuide();
+    } else {
+      alert('請允許相機 / Allow camera access\n'+e.message);
+    }
+  }
+}
+function cancelCam(){if(STREAM){STREAM.getTracks().forEach(function(t){t.stop();});STREAM=null;}}
+function takePic(){
+  var v=document.getElementById('video'),c=document.getElementById('canvas');
+  c.width=v.videoWidth||640;c.height=v.videoHeight||480;
+  c.getContext('2d').drawImage(v,0,0);
+  finishPhoto(c);
+}
+function handleFile(e){
+  var f=e.target.files[0];if(!f)return;
+  var img=new Image(),reader=new FileReader();
+  reader.onload=function(ev){
+    img.onload=function(){
+      var MAX=800,c=document.getElementById('canvas');
+      var w=img.width,h=img.height;
+      if(w>MAX||h>MAX){var r=Math.min(MAX/w,MAX/h);w=Math.round(w*r);h=Math.round(h*r);}
+      c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+      finishPhoto(c);
+    };
+    img.src=ev.target.result;
+  };
+  reader.readAsDataURL(f);e.target.value='';
+}
+function finishPhoto(c){PHOTO=c.toDataURL('image/jpeg',.85);document.getElementById('prev-img').src=PHOTO;cancelCam();show('prev');}
+
+// ══════════════════════════════════════
+// COLOR ANALYSIS
+// ══════════════════════════════════════
+function analyzeColors(canvas){
+  var ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;
+  var x0=Math.floor(w*0.2),y0=Math.floor(h*0.1),sw=Math.floor(w*0.6),sh=Math.floor(h*0.8);
+  var data=ctx.getImageData(x0,y0,sw,sh).data;
+  var rS=0,gS=0,bS=0,n=0;
+  for(var i=0;i<data.length;i+=16){
+    var r=data[i],g=data[i+1],b=data[i+2],a=data[i+3];
+    if(a<128)continue;
+    var lum=(r*299+g*587+b*114)/1000;
+    if(lum>240||lum<15)continue;
+    rS+=r;gS+=g;bS+=b;n++;
+  }
+  if(n===0){rS=180;gS=140;bS=120;n=1;}
+  var r=rS/n,g=gS/n,b=bS/n;
+  var brightness=(r*299+g*587+b*114)/1000;
+  var warmth=(r-b)/255;
+  var sat=(Math.max(r,g,b)-Math.min(r,g,b))/255;
+  return{r:r/255,g:g/255,b:b/255,brightness:brightness/255,warmth:warmth,saturation:sat,avgR:Math.round(r),avgG:Math.round(g),avgB:Math.round(b)};
+}
+function classifyAura(c){
+  var br=c.brightness,wm=c.warmth,st=c.saturation;
+  if(br>0.62&&st>0.08&&wm>0.04)return'vibrant';
+  if(wm>0.12&&br>0.5)return'warm';
+  if(br>0.48&&st<0.12)return'neutral';
+  if(br>0.38&&st<0.09)return'pale';
+  return'dull';
+}
+function auraScore(type,col){
+  // 常態分佈：mean 偏高，大多數人得到好看的分數
+  var params={
+    vibrant:{mean:9.2,std:0.45},
+    warm:   {mean:8.4,std:0.50},
+    neutral:{mean:7.9,std:0.55},
+    pale:   {mean:6.8,std:0.50},
+    dull:   {mean:5.8,std:0.45}
+  };
+  var p=params[type]||params.neutral;
+  // Box-Muller 雙 seed（R 和 B 分開，確保 z 值散開）
+  var s1=((col.avgR*39.7+col.avgG*0.13)%97)/97;
+  var s2=((col.avgB*43.1+col.avgG*0.17)%89)/89;
+  if(s1<0.001)s1=0.001; if(s2<0.001)s2=0.001;
+  var z=Math.sqrt(-2*Math.log(s1))*Math.cos(2*Math.PI*s2);
+  z=Math.max(-2,Math.min(2,z));
+  return Math.round(Math.max(4.0,Math.min(10.0,p.mean+z*p.std))*10)/10;
+}
+
+// ══════════════════════════════════════
+// ANALYZE
+// ══════════════════════════════════════
+function doAnalyze(){
+  if(!PHOTO)return;
+
+  // 清除舊結果，防止前次占卜結果閃現
+  var oldPhoto=document.getElementById('r-photo'); if(oldPhoto)oldPhoto.src='';
+  var oldNum=document.getElementById('snum'); if(oldNum)oldNum.textContent='-';
+  var oldArc=document.getElementById('sarc'); if(oldArc)oldArc.setAttribute('stroke-dasharray','0 289');
+  var oldOverall=document.getElementById('r-overall'); if(oldOverall)oldOverall.textContent='';
+  var oldAdv=document.getElementById('r-advice'); if(oldAdv)oldAdv.innerHTML='';
+
+  // 1. 純資料計算（不碰任何 DOM）
+  var c=document.getElementById('canvas');
+  try{
+    var cols=analyzeColors(c);
+    var aura=classifyAura(cols);
+    var score=auraScore(aura,cols);
+    RESULT={aura:aura,score:score,cols:cols};
+  }catch(e){
+    var cols={avgR:180,avgG:150,avgB:130,brightness:.65,warmth:.12,saturation:.08,r:.7,g:.59,b:.51};
+    RESULT={aura:'neutral',score:7.5,cols:cols};
+  }
+
+  // 2. 切到過場（先 show，DOM 可見後才操作）
+  stopThinkingAnim();
+  show('load');
+
+  // 3. 啟動動畫（50ms 後，確保 DOM 已渲染）
+  setTimeout(function(){ startThinkVisual(); }, 30);
+
+  // 4. 固定 3.8 秒後跳結果：先 render 再 show
+  setTimeout(function(){
+    stopThinkingAnim();
+    show('result');
+    // rAF 確保 display:block 已生效再 render（比 setTimeout 50ms 快且可靠）
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        renderResult(RESULT);
+      });
+    });
+  }, 2600);
+}
+
+// ══════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════
+function renderResult(res){
+  var t=D[LANG],a=res.aura,sc=res.score,col=res.cols;
+  var gmap={vibrant:'#ff6b6b',warm:'#ffd700',neutral:'#51cf66',pale:'#94a3b8',dull:'#a78bfa'};
+  var glow=gmap[a]||'#f5c842';
+  document.documentElement.style.setProperty('--g',glow);
+  document.documentElement.style.setProperty('--g2',glow);
+  document.querySelectorAll('.pt').forEach(function(p){p.style.background=glow;p.style.boxShadow='0 0 6px '+glow;});
+
+  document.getElementById('r-photo').src=PHOTO;
+  document.getElementById('r-photo').style.borderColor=glow;
+  document.getElementById('snum').textContent=sc.toFixed(1);
+  document.getElementById('sarc').style.stroke=glow;
+  document.getElementById('sarc').style.filter='drop-shadow(0 0 5px '+glow+')';
+  var circ=2*Math.PI*46;
+  setTimeout(function(){document.getElementById('sarc').setAttribute('stroke-dasharray',(sc/10*circ)+' '+circ);},120);
+
+  var sw=document.getElementById('skin-sw'),sc2=sw.getContext('2d');
+  sc2.fillStyle='rgb('+col.avgR+','+col.avgG+','+col.avgB+')';sc2.fillRect(0,0,32,32);
+
+  var bars=document.getElementById('aura-bars');bars.innerHTML='';
+  var metrics=[{k:'r',v:col.r,c:'#ff6b6b'},{k:'g',v:col.g,c:'#51cf66'},{k:'b',v:col.b,c:'#60a5fa'},{k:'bright',v:col.brightness,c:'#fde68a'},{k:'warm',v:Math.max(0,Math.min(1,(col.warmth+0.3)/0.6)),c:'#fb923c'}];
+  metrics.forEach(function(m){
+    var pct=Math.round(m.v*100);
+    bars.innerHTML+='<div class="abar-row"><span class="abar-lbl">'+t.avl[m.k]+'</span><div class="abar-bg"><div class="abar-fill" style="width:0%;background:'+m.c+'" data-w="'+pct+'%"></div></div><span class="abar-val">'+pct+'%</span></div>';
+  });
+  setTimeout(function(){document.querySelectorAll('.abar-fill').forEach(function(el){el.style.width=el.dataset.w;});},150);
+
+  document.getElementById('aura-verdict').textContent=t.av[a];
+  document.getElementById('r-overall').textContent=pick(t.open)+pick(t.overall[a]);
+  document.getElementById('r-wealth').textContent=pick(t.wealth[a]);
+  document.getElementById('r-study').textContent=pick(t.study[a]);
+  document.getElementById('r-career').textContent=pick(t.career[a]);
+  document.getElementById('r-love').textContent=pick(t.love[a]);
+
+  var adv=document.getElementById('r-advice');adv.innerHTML='';
+  t.advice[a].forEach(function(s){var d=document.createElement('div');d.className='advi';d.innerHTML='<span class="addia">◆</span><span class="ftxt">'+s+'</span>';adv.appendChild(d);});
+
+  document.getElementById('r-bless').textContent=t.bless[a];
+  document.getElementById('oet-txt').textContent=pickIdx(t.oet,sc);
+  // 更新結果頁的語言標籤（不呼叫 applyLang 避免迴圈）
+  var t2=D[LANG];
+  var sl=document.getElementById('lbl-score'); if(sl)sl.textContent=t2.scl;
+  var al=document.getElementById('lbl-aura');  if(al)al.textContent=t2.al;
+  document.getElementById('l-wealth').textContent=t2.lw;
+  document.getElementById('l-study').textContent=t2.ls;
+  document.getElementById('l-career').textContent=t2.lc;
+  document.getElementById('l-love').textContent=t2.ll;
+  document.getElementById('l-advice').textContent=t2.la;
+  document.getElementById('l-bless').textContent=t2.lb;
+  document.getElementById('oet-title').textContent=t2.ot;
+}
+
+
+
+// ══════════════════════════════════════
+// LINE 瀏覽器偵測與引導
+// ══════════════════════════════════════
+function isLineWebView(){
+  var ua=navigator.userAgent||'';
+  return /Line\//i.test(ua);
+}
+
+function tryOpenExternal(){
+  var url=window.location.href;
+  // 複製連結到剪貼板
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){
+      var btn=document.getElementById('lo-btn');
+      if(btn){
+        btn.textContent='✓ 連結已複製！請貼到 Chrome 或 Safari';
+        btn.style.background='#2d6a4f';
+        setTimeout(function(){
+          btn.textContent='🌐 複製連結，用瀏覽器開啟';
+          btn.style.background='';
+        }, 3000);
+      }
+    }).catch(function(){
+      prompt('請複製以下連結，貼到 Chrome 或 Safari 開啟：', url);
+    });
+  } else {
+    prompt('請複製以下連結，貼到 Chrome 或 Safari 開啟：', url);
+  }
+}
+
+function showLineGuide(){
+  var ov=document.getElementById('line-overlay');
+  if(ov){ ov.style.display='flex'; }
+  updateLineOverlayLang();
+}
+
+function updateLineOverlayLang(){
+  var texts={
+    zh:{
+      title:'請用瀏覽器開啟',
+      desc:'LINE 內建瀏覽器不支援相機權限\n請改用手機的 Safari 或 Chrome 開啟',
+      s1:'方法一（Android）',
+      s1b:'點右上角 ⋮ → 選「在瀏覽器中開啟」',
+      s2:'方法二（iOS）',
+      s2b:'點右下角 ⋯ → 選「用 Safari 開啟」',
+      btn:'🌐 複製連結，用瀏覽器開啟',
+      copied:'✓ 連結已複製！請貼到 Chrome 或 Safari',
+    },
+    en:{
+      title:'Please open in browser',
+      desc:"LINE's built-in browser doesn't support camera\nPlease open in Safari or Chrome",
+      s1:'Android',
+      s1b:'Tap ⋮ top-right → "Open in browser"',
+      s2:'iOS',
+      s2b:'Tap ⋯ bottom-right → "Open in Safari"',
+      btn:'🌐 Copy link & open in browser',
+      copied:'✓ Link copied! Paste in Chrome or Safari',
+    },
+    vi:{
+      title:'Vui lòng mở bằng trình duyệt',
+      desc:'Trình duyệt LINE không hỗ trợ camera\nVui lòng mở bằng Safari hoặc Chrome',
+      s1:'Android',s1b:'Nhấn ⋮ góc trên → "Mở trong trình duyệt"',
+      s2:'iOS',s2b:'Nhấn ⋯ góc dưới → "Mở trong Safari"',
+      btn:'🌐 Sao chép liên kết & mở trong trình duyệt',
+      copied:'✓ Đã sao chép! Dán vào Chrome hoặc Safari',
+    },
+    id:{
+      title:'Buka dengan browser',
+      desc:'Browser LINE tidak mendukung kamera\nSilakan buka dengan Safari atau Chrome',
+      s1:'Android',s1b:'Ketuk ⋮ kanan atas → "Buka di browser"',
+      s2:'iOS',s2b:'Ketuk ⋯ kanan bawah → "Buka di Safari"',
+      btn:'🌐 Salin tautan & buka di browser',
+      copied:'✓ Tersalin! Tempel di Chrome atau Safari',
+    },
+    ms:{
+      title:'Sila buka dalam pelayar',
+      desc:'Pelayar LINE tidak menyokong kamera\nSila buka dalam Safari atau Chrome',
+      s1:'Android',s1b:'Ketuk ⋮ kanan atas → "Buka dalam pelayar"',
+      s2:'iOS',s2b:'Ketuk ⋯ kanan bawah → "Buka dalam Safari"',
+      btn:'🌐 Salin pautan & buka dalam pelayar',
+      copied:'✓ Disalin! Tampal dalam Chrome atau Safari',
+    },
+  };
+  var t=texts[LANG]||texts.zh;
+  function setEl(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  setEl('lo-title',t.title);
+  var desc=document.getElementById('lo-desc');
+  if(desc)desc.innerHTML=t.desc.replace('\n','<br>');
+  setEl('lo-s1',t.s1);setEl('lo-s2',t.s2);
+  setEl('lo-btn',t.btn);
+  // 把步驟重寫
+  var step=document.getElementById('lo-step');
+  if(step)step.innerHTML='<b>'+t.s1+'</b><br>'+t.s1b+'<br><br><b>'+t.s2+'</b><br>'+t.s2b;
+}
+
+// ══════════════════════════════════════
+// EMAIL — 傳送占卜結果
+// ══════════════════════════════════════
+function sendResultEmail(){
+  var email=document.getElementById('email-input').value.trim();
+  if(!email||!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+    document.getElementById('email-input').style.borderColor='#ff6b6b';
+    setTimeout(function(){document.getElementById('email-input').style.borderColor='';},1500);
+    return;
+  }
+  if(!RESULT){return;}
+  var t=D[LANG], a=RESULT.aura, sc=RESULT.score;
+  var auraNames={zh:{vibrant:'紅潤飽滿',warm:'暖金氣色',neutral:'平和中正',pale:'氣色偏淡',dull:'氣色沉滯'},
+                 en:{vibrant:'Vibrant & Rosy',warm:'Warm Golden',neutral:'Balanced & Steady',pale:'Light & Pale',dull:'Subdued Tones'},
+                 vi:{vibrant:'Hồng Hào Rực Rỡ',warm:'Vàng Ấm Áp',neutral:'Bình Hòa Ổn Định',pale:'Nhạt Cần Bổ Sung',dull:'Trầm Cần Hồi Phục'},
+                 id:{vibrant:'Cerah Merona',warm:'Hangat Keemasan',neutral:'Seimbang & Stabil',pale:'Pucat Butuh Energi',dull:'Kusam Masa Pemulihan'},
+                 ms:{vibrant:'Cerah Merekah',warm:'Hangat Keemasan',neutral:'Seimbang & Stabil',pale:'Pucat Perlu Tenaga',dull:'Kusam Masa Pemulihan'}};
+  var aName=(auraNames[LANG]||auraNames.zh)[a]||a;
+
+  // 組合郵件內文
+  var NL='\n';
+  var DASH='────────────────────────'+NL;
+  var body='';
+
+  // ── 開頭：AEUST 連結 ──
+  body+=(t.emailGreeting||'您好！以下是您的鴨董大師氣色占卜結果：')+NL+NL;
+  body+=DASH;
+  body+=(t.emailAeustIntro||'亞東科技大學 Asia Eastern University of Science and Technology (AEUST)')+NL;
+  body+='https://www.aeust.edu.tw'+NL;
+  body+=DASH+NL;
+
+  // ── 主要結果 ──
+  body+='🦆 '+(LANG==='zh'?'鴨董大師氣色占卜結果':LANG==='en'?'Master Yadong Fortune Result':LANG==='vi'?'Kết Quả Xem Tướng Thầy Vịt':LANG==='id'?'Hasil Ramalan Master Bebek':'Keputusan Ramalan Tuan Itik')+NL+NL;
+  body+=(LANG==='zh'?'氣場類型：':LANG==='en'?'Aura Type: ':LANG==='vi'?'Loại Khí Sắc: ':LANG==='id'?'Tipe Aura: ':'Jenis Aura: ')+aName+NL;
+  body+=(LANG==='zh'?'氣場指數：':LANG==='en'?'Aura Score: ':LANG==='vi'?'Điểm Khí Sắc: ':LANG==='id'?'Skor Aura: ':'Skor Aura: ')+sc.toFixed(1)+' / 10'+NL+NL;
+
+  // 總運
+  var overall=document.getElementById('r-overall');
+  if(overall&&overall.textContent){
+    body+=(t.lw?'【'+(LANG==='zh'?'整體運勢':LANG==='en'?'Overall Fortune':LANG==='vi'?'Tổng Quan':LANG==='id'?'Nasib Keseluruhan':'Nasib Keseluruhan')+'】':'【Overall】')+NL;
+    body+=overall.textContent+NL+NL;
+  }
+  // 財運
+  var wealth=document.getElementById('r-wealth');
+  if(wealth&&wealth.textContent){body+='【'+t.lw+'】'+NL+wealth.textContent+NL+NL;}
+  // 學業
+  var study=document.getElementById('r-study');
+  if(study&&study.textContent){body+='【'+t.ls+'】'+NL+study.textContent+NL+NL;}
+  // 事業
+  var career=document.getElementById('r-career');
+  if(career&&career.textContent){body+='【'+t.lc+'】'+NL+career.textContent+NL+NL;}
+  // 感情
+  var love=document.getElementById('r-love');
+  if(love&&love.textContent){body+='【'+t.ll+'】'+NL+love.textContent+NL+NL;}
+  // 建議
+  var advEl=document.getElementById('r-advice');
+  if(advEl&&advEl.textContent.trim()){
+    body+='【'+t.la+'】'+NL;
+    body+=advEl.textContent.replace(/◆/g,'◆ ').trim()+NL+NL;
+  }
+  // 祝福
+  var bless=document.getElementById('r-bless');
+  if(bless&&bless.textContent){body+='🔮 '+bless.textContent+NL+NL;}
+  // 批示
+  var oet=document.getElementById('oet-txt');
+  if(oet&&oet.textContent){
+    body+=DASH;
+    body+='🎓 '+(document.getElementById('oet-title')?document.getElementById('oet-title').textContent:'')+NL;
+    body+=oet.textContent+NL+NL;
+  }
+
+  // ── 結尾：AEUST 招生網址 ──
+  body+=DASH;
+  body+=(t.emailAdmission||'🎓 亞東科技大學招生資訊')+NL;
+  body+='https://www.aeust.edu.tw/page/admissions'+NL;
+  body+=(LANG==='zh'?'歡迎報考亞東科技大學，與鴨董大師同在的校園等您！':
+         LANG==='en'?'Welcome to apply to AEUST — a campus where destiny begins!':
+         LANG==='vi'?'Chào mừng đến với AEUST — nơi vận mệnh bắt đầu!':
+         LANG==='id'?'Selamat datang di AEUST — kampus takdir dimulai!':
+         'Selamat datang ke AEUST — kampus di mana takdir bermula!')+NL+NL;
+  body+=(LANG==='zh'?'── 由鴨董大師氣色占卜 × 亞東科技大學工業設計系 聯名出品 ──':
+         '── Master Yadong Face Oracle × AEUST Industrial & Commercial Design Dept. ──');
+
+  // 組 mailto URL
+  var subject=encodeURIComponent(t.emailSubject||'🦆 鴨董大師氣色占卜結果');
+  var bodyEnc=encodeURIComponent(body);
+  // mailto 有長度限制，超過就截短
+  var maxLen=1800;
+  if(bodyEnc.length>maxLen){
+    bodyEnc=encodeURIComponent(body.substring(0,900)+'...');
+  }
+  window.location.href='mailto:'+encodeURIComponent(email)+'?subject='+subject+'&body='+bodyEnc;
+
+  // 顯示確認訊息
+  var sentEl=document.getElementById('email-sent');
+  if(sentEl){sentEl.style.display='block';}
+  setTimeout(function(){if(sentEl)sentEl.style.display='none';},4000);
+}
+
+// ── applyLang 更新 email 區塊文字 ──
+function toggleEmailPanel(){
+  var panel=document.getElementById('email-panel');
+  var btn=document.getElementById('email-toggle-btn');
+  var isOpen=panel.style.display!=='none';
+  if(isOpen){
+    panel.style.display='none';
+  } else {
+    panel.style.display='block';
+    setTimeout(function(){
+      var inp=document.getElementById('email-input');
+      if(inp)inp.focus();
+    },100);
+  }
+}
+
+function updateEmailLang(){
+  var t=D[LANG];
+  var tl=document.getElementById('email-toggle-label'); if(tl)tl.textContent=t.emailBtn2||(LANG==='zh'?'寄送結果':LANG==='en'?'Email Result':LANG==='vi'?'Gửi Kết Quả':LANG==='id'?'Kirim Hasil':'Hantar Keputusan');
+  var ei=document.getElementById('email-input'); if(ei)ei.placeholder=t.emailPlaceholder||'your@email.com';
+  var bl=document.getElementById('email-btn-label'); if(bl)bl.textContent=t.emailBtn||'傳送';
+  var en2=document.getElementById('email-note'); if(en2)en2.textContent=t.emailNote||'由您的郵件軟體寄出';
+  var es=document.getElementById('email-sent'); if(es)es.style.display='none';
+}
+
+// ══════════════════════════════════════
+// SPEECH — 全平台相容版
+// ══════════════════════════════════════
+
+applyLang();
+// 自動偵測 LINE 瀏覽器
+if(isLineWebView()){showLineGuide();}
+</script>
+</body>
+</html>
